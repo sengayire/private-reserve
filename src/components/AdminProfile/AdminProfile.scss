@@ -1,0 +1,19 @@
+.profile-form-container{
+    background-color: red;
+    .profile-form {
+        display: grid;
+        .profile-form-content {
+           .form-content {
+               select {
+               option {
+                display: flex;
+                flex-direction: row;
+               }
+               }
+           }
+    }
+     }
+     table {
+         background: green;
+     }
+}

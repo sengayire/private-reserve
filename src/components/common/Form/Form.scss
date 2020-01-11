@@ -1,0 +1,22 @@
+@import '../../../assets/css/colors';
+@import '../../../assets/css/padding';
+
+.Form {
+    background-color: rgb(49, 48, 48);
+    border: 1px solid #fed100;
+    color: #fed100;
+    height: auto;
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 760px) {
+  .Form {
+    margin-left: 5% !important;
+  }
+}
+
+@media screen and (min-width: 761px) {
+  .Form {
+    margin-left: 24% !important;
+  }
+}
