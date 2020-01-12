@@ -61,7 +61,7 @@ export class Login extends Component {
         )}
         {!loading && Object.keys(profile).length ? <Redirect to={redirect || '/profile'} /> : ''}
         <Link to="/">
-         <h1 style={{color: 'white', width: '100%', textAlign: 'center'}}>Private reserve</h1>
+         <h1 style={{ color: 'white', width: '100%', textAlign: 'center' }}>Private reserve</h1>
         </Link>
         <div id="Login">
           <div className="LoginForm large-screen-3 medium-screen-4 small-screen-4">
@@ -94,7 +94,7 @@ export class Login extends Component {
               <Link
                 to="/forgot-password"
                 className="active small-text xlarge-h-padding forgot-Password"
-                style={{color: '#fed100'}}
+                style={{ color: '#fed100' }}
               >
                 Forgot Password?
               </Link>
@@ -103,7 +103,7 @@ export class Login extends Component {
                   <Button type="submit" text="Login" padding="small" size={20} loading={loading}>
                     Login
                   </Button>{' '}
-                    <Link to="/signup" className="active" style={{color: 'white'}}>
+                    <Link to="/signup" className="active" style={{ color: 'white' }}>
                       {' '}
                       Register Now
                     </Link>

@@ -39,7 +39,7 @@ class Header extends Component {
   render() {
     const { showUserMenu } = this.state;
     return (
-      <header className="Header" style={{display: 'flex', flexDirection: 'column', alignContent: 'start'}}>
+      <header className="Header" style={{ display: 'flex', flexDirection: 'column', alignContent: 'start' }}>
         <div className="container">
           <div className="small-screen-1 medium-screen-2 large-screen-2">
             <div className="logo hide-on-small">
@@ -76,12 +76,12 @@ class Header extends Component {
             </span>
           </div>
         </div>
-        <div className='header-nav' style={{display: 'flex', marginTop: '100px', backgroundColor: '#666', fontSize: '2px'}} >
-            <nav style={{display: 'flex', flexDirection: 'row', height: '100%', marginLeft: '80px', }}>
-                <Button style={{color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)'}}>Home</Button> 
-                <Button style={{color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)'}}>Pricing</Button>
-                <Button style={{color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)'}} >Contact</Button>
-                <Button style={{ marginLeft: '600px', color: 'white', float: 'right', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)'}}>Login</Button></nav></div>
+        <div className='header-nav' style={{ display: 'flex', marginTop: '100px', backgroundColor: '#666', fontSize: '2px' }} >
+            <nav style={{ display: 'flex', flexDirection: 'row', height: '100%', marginLeft: '80px', }}>
+                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}>Home</Button>
+                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}>Pricing</Button>
+                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }} >Contact</Button>
+                <Button style={{ marginLeft: '600px', color: 'white', float: 'right', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}>Login</Button></nav></div>
       </header>
     );
   }
