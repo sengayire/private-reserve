@@ -6,7 +6,6 @@ import queryString from 'query-string';
 import { login } from '../../actions/user';
 import './Login.scss';
 import { Input, Button, Form, SocialMediaButton, Alert, Img } from '../common';
-import Logo from '../../assets/images/logo_ah_secondo.png';
 
 export class Login extends Component {
   state = {
@@ -23,10 +22,10 @@ export class Login extends Component {
     return this.setState({ redirect: redirect && `/${redirect}` });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { errors } = this.state;
-    this.setState({ errors: { ...errors, ...nextProps.errors } });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { errors } = this.state;
+  //   this.setState({ errors: { ...errors, ...nextProps.errors } });
+  // }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -135,16 +134,16 @@ Login.propTypes = {
   errors: PropTypes.object
 };
 
-const mapStateToProps = ({
-  user: {
-    login: { errors, message, loading },
-    profile
-  }
-}) => ({
-  errors,
-  message,
-  loading,
-  profile
-});
+// const mapStateToProps = ({
+//   user: {
+//     login: { errors, message, loading },
+//     profile
+//   }
+// }) => ({
+//   errors,
+//   message,
+//   loading,
+//   profile
+// });
 
-export default Login;
+export default connect(null, { login })(Login);

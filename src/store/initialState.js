@@ -1,4 +1,4 @@
-const user = require('./initialStates/userInitialState');
+import  user from './initialStates/userInitialState'
 
 
-module.exports = { user, };
+export default {user};

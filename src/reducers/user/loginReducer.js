@@ -5,7 +5,7 @@ export default (state, { type, payload }) => {
     case userActionsTypes.LOGIN_USER_START:
       return {
         ...state,
-        login: { ...state.login, message: '', loading: true, errors: {} }
+        login: { message: '', loading: true, errors: {} }
       };
     case userActionsTypes.LOGIN_USER_END:
       return {
