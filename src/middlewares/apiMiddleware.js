@@ -9,10 +9,11 @@ const apiMiddleware = ({ dispatch, getState }) => (next) => async ({ type = '', 
     dispatch({ type: payload.onStart, payload: { loading: true } });
     const { data } = await axiosHelper(payload.httpOptions)[payload.method](
       payload.url,
-      payload.data
+      payload.data,
     );
     dispatch({ type: payload.onSuccess, payload: data });
   } catch (error) {
+    console.log('middleware', error)
     dispatch({
       type: payload.onFailure,
       payload: (error.response && error.response.data) || { errors: { message: error.message } }

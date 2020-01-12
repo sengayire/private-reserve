@@ -1,6 +1,6 @@
-const checkUser = require('../../helpers/checkUser')();
+import checkUser from '../../helpers/checkUser'
 
-module.exports = {
+ const user = {
   profile: checkUser.profile,
   token: localStorage.token,
   isAuth: checkUser.isAuth,
@@ -21,3 +21,5 @@ module.exports = {
     errors: {}
   }
 };
+
+export default user;
