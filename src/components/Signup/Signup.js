@@ -171,7 +171,7 @@ export class Signup extends Component {
             </div>
               <br />
               <div>
-                 <span style={{color: 'white'}}> <b>By submitting, you are agreeing to our</b></span>
+                 <span style={{ color: 'white' }}> <b>By submitting, you are agreeing to our</b></span>
                  <br />
                   <span>Terms and Conditions</span> & <span>Privacy Policy.</span>
               </div>
@@ -180,7 +180,7 @@ export class Signup extends Component {
               <Button type="submit" text="Signup" loading={loading}>
                 Signup
               </Button>
-              <Link to='/login' style={{color: 'white'}}>{' '}Login</Link>
+              <Link to='/login' style={{ color: 'white' }}>{' '}Login</Link>
               <div className="center-align">
                 <p className="text-grey">Or you can signup with:</p>
                 <SocialMediaButton name="google" size={38} />

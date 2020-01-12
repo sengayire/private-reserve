@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import SocialMediaAuth from './SocialMediaAuth';
 import Home from './Home';
 import Signup from './Signup';
-import AdminProfile from './AdminProfile/AdminProfile'
+import AdminProfile from './AdminProfile/AdminProfile';
 import Login from './Login';
 
 
@@ -16,8 +16,6 @@ const Routes = () => (
     <Route exact path="/profile" component ={AdminProfile} />
   </Switch>
 );
-
-
 
 
 export default Routes;

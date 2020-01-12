@@ -25,7 +25,7 @@ export class Layout extends Component {
     const { style } = this.state;
     const { children } = this.props;
     return (
-      <div className="Layout" style={{marginTop: '250px'}}>
+      <div className="Layout" style={{ marginTop: '250px' }}>
         <Header />
         <div style={style}>{children}</div>
         <Footer />

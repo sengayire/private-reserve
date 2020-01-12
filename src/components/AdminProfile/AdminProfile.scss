@@ -1,19 +1,36 @@
+
+.profile-top-button {
+    display: flex;
+    justify-content:  space-between;
+}
 .profile-form-container{
-    background-color: red;
+    background-color: white;
+    border-radius: 5px;
     .profile-form {
-        display: grid;
         .profile-form-content {
-           .form-content {
-               select {
-               option {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 15px;
+            margin-right: 12px;
+            select {
+                color: gray;
+                height: 25px;
+                font-size: 15px;
+                padding-bottom: 2px;
+                background-color: transparent;
+                margin-left: 3px;
+            }
+            .profile-select-show {
                 display: flex;
-                flex-direction: row;
-               }
-               }
-           }
+            }
+      }
     }
+ #customers {
+     margin-left: 15px;
+     th {
+         background-color: gray;
+         height: 5px;
      }
-     table {
-         background: green;
-     }
+ } 
 }

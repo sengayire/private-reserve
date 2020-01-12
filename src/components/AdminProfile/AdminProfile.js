@@ -1,29 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Layout from '../Layout';
 import { Button } from '../common';
 import './AdminProfile.scss';
+
 export default class AdminProfile extends Component {
-    render() {
-        return (
+  render() {
+    return (
             <div>
                 <Layout>
-<div>
+<div className="profile-top-button">
     <div>
-        <Button>Build Fast Ad</Button> 
-        <Button> Build Regular Ad</Button> 
+        <Button>Build Fast Ad</Button>
+        <Button> Build Regular Ad</Button>
     </div>
-    <div>
-        <Button>Available Now ON</Button> 
-        <Button> Available Now OFF</Button> 
+    <div className="profile-top-btn-left">
+        <Button>Available Now ON</Button>
+        <Button> Available Now OFF</Button>
     </div>
 </div>
 
-<div className="profile-form-container"> 
+<div className="profile-form-container">
     <form className="profile-form">
         <div className="profile-form-content">
+            <div className="profile-select-show">
             <div className="form-content">
                 <label>Show Me:</label>
-                <select>
+                <select className="show-me-select-opt">
                     <option>
                         Online Services
                     </option>
@@ -44,7 +46,6 @@ export default class AdminProfile extends Component {
                     </option>
                 </select>
             </div>
-
             <div>
                 <label>Sort By:</label>
                 <select>
@@ -71,6 +72,7 @@ export default class AdminProfile extends Component {
                     </option>
                 </select>
             </div>
+            </div>
 
             <div>
                 <label>Show per page:</label>
@@ -87,8 +89,8 @@ export default class AdminProfile extends Component {
                 </select>
             </div>
             <div>
-                <button></button>
-                <button></button>
+                <button>Az</button>
+                <button>Za</button>
             </div>
             <div>
                 <div>
@@ -110,19 +112,38 @@ export default class AdminProfile extends Component {
     <th>Renew</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td>
+        <p>Delete</p>
+        <p>Post Visit / Copy Ad</p>
+    </td>
     <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
+    <td>
+        <p><b>Toronto, ON, Canada</b></p>
+        <p>Visiting Ad</p>
+        <p><b>Person:</b> Account Holder</p>
+        <p>Person</p>
+    </td>
+    <td>
+        <p>Start: 08/14/2019 5:01 pm</p>
+        <p>End: 08/29/2019 5:01 pm</p>
+    </td>
+    <td>
+        <p><b>CA$100.50</b></p>
+        <p>Bump<b>CA$9.39</b></p>
+    </td>
+    <td>
+        <p><b>Offline</b></p>
+        <p>Order Saved</p>
+    </td>
+    <td>
+        <b>In the Bag</b>
+    </td>
   </tr>
 </table>
 </div>
 </div>
                 </Layout>
             </div>
-        ) 
-    }
+    );
+  }
 }
