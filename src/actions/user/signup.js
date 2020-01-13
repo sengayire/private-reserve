@@ -3,7 +3,7 @@ import { apiAction } from '../../helpers';
 
 export default (formData) => (dispatch) => dispatch(apiAction({
   method: 'post',
-  url: '/auth/signup',
+  url: 'http://localhost:3000/api/v1/auth/signup',
   data: { ...formData },
   onStart: userActionsTypes.SIGNUP_USER_START,
   onEnd: userActionsTypes.SIGNUP_USER_END,

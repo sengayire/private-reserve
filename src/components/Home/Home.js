@@ -173,10 +173,6 @@ export class Home extends Component {
   }
 }
 
-// Home.defaultProps = { bookmarks: [] };
-// Home.propTypes = { bookmarks: PropTypes.array, };
-
-// const mapStateToProps = ({ bookmarks: { bookmarks } }) => ({ bookmarks });
 
 export default connect(
   null,
