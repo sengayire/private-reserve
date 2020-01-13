@@ -5,7 +5,7 @@ export default (state, { type, payload }) => {
     case userActionsTypes.SIGNUP_USER_START:
       return {
         ...state,
-        signup: { ...state.signup, message: '', loading: true, errors: {} }
+        signup: { message: '', loading: true, errors: {} }
       };
     case userActionsTypes.SIGNUP_USER_END:
       return {
