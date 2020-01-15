@@ -73,7 +73,8 @@ export class Signup extends Component {
         <div className="SignupForm large-screen-3 medium-screen-4 small-screen-4">
             <br />
           <Form formTitle="REGISTER" onSubmit={this.handleSubmit}>
-            <div className="large-screen-2 medium-screen-2 small-screen-4">
+           <div>
+           <div className="large-screen-2 medium-screen-2 small-screen-4">
               <Input
                 name="firstName"
                 type="text"
@@ -97,6 +98,7 @@ export class Signup extends Component {
                 errorWidth={180}
               />
             </div>
+           </div>
             <div className="small-screen-4">
               <Input
                 name="username"
@@ -121,7 +123,8 @@ export class Signup extends Component {
                 errorWidth={180}
               />
             </div>
-            <div className="large-screen-2 medium-screen-2 small-screen-4">
+           <div>
+           <div className="large-screen-2 medium-screen-2 small-screen-4">
               <Input
                 name="password"
                 type="password"
@@ -145,6 +148,8 @@ export class Signup extends Component {
                 errorWidth={180}
               />
             </div>
+           </div>
+            <div>
             <div className="large-screen-2 medium-screen-2 small-screen-4">
               <Input
                 name="lastName"
@@ -168,6 +173,7 @@ export class Signup extends Component {
                 error={errors.lastName}
                 errorWidth={180}
               />
+            </div>
             </div>
               <br />
               <div>
