@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Layout from '../Layout';
 import { Button } from '../common';
 import './AdminProfile.scss';
@@ -11,7 +12,7 @@ export default class AdminProfile extends Component {
 <div className="profile-top-button">
     <div>
         <Button>Build Fast Ad</Button>
-        <Button> Build Regular Ad</Button>
+        <Link to='/builder/selectProfile'><Button> Build Regular Ad</Button></Link>
     </div>
     <div className="profile-top-btn-left">
         <Button>Available Now ON</Button>

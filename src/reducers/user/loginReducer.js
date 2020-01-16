@@ -11,7 +11,7 @@ export default (state = userInitialState, { type, payload }) => {
     case userActionsTypes.LOGIN_USER_END:
       return {
         ...state,
-        login: { ...state.login, loading: false }
+        login: { ...state, loading: false }
       };
     case userActionsTypes.LOGIN_USER_SUCCESS:
       localStorage.user = JSON.stringify(payload.user);

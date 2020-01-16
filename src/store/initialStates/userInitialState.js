@@ -21,21 +21,6 @@ module.exports = {
     message: '',
     errors: {}
   },
-  getUser: {
-    loading: false,
-    message: '',
-    errors: {}
-  },
-  getUsers: {
-    loading: false,
-    message: '',
-    errors: {}
-  },
-  searchUser: {
-    loading: false,
-    message: '',
-    errors: {}
-  },
   editProfile: {
     loading: false,
     message: '',
@@ -56,40 +41,10 @@ module.exports = {
     message: '',
     errors: {}
   },
-  adminCreateUser: {
+  adProfile: {
     loading: false,
     message: '',
     errors: {}
   },
-  adminGetPermissions: {
-    loading: false,
-    message: '',
-    permissions: [],
-    errors: {}
-  },
-  deleteUser: {
-    loading: false,
-    message: '',
-    errors: {}
-  },
-  permissions: {
-    articles: ['read', 'create', 'edit', 'delete'],
-    comments: ['read', 'create', 'edit', 'delete'],
-    tags: ['read', 'create', 'edit', 'delete'],
-    users: ['read', 'create', 'edit', 'delete'],
-    permissions: ['read', 'create', 'edit', 'delete']
-  },
-  followers: [],
-  following: [],
-  followUser: {
-    loading: false,
-    message: '',
-    errors: {}
-  },
-  unfollowUser: {
-    loading: false,
-    message: '',
-    errors: {}
-  }
 };
 
