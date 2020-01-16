@@ -1,6 +1,7 @@
 import { userActionsTypes } from '../../actions-types';
+import userInitialState from '../../store/initialStates/userInitialState'
 
-export default (state, { type, payload }) => {
+export default (state = userInitialState, { type, payload }) => {
   switch (type) {
     case userActionsTypes.LOGIN_USER_START:
       return {
@@ -28,6 +29,6 @@ export default (state, { type, payload }) => {
         login: { loading: false, message: '', errors: { ...payload.errors } }
       };
     default:
-      return null;
+      return state;
   }
 };

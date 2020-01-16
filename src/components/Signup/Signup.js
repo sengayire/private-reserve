@@ -16,7 +16,9 @@ export class Signup extends Component {
       username: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      pin: '',
+      phoneNumber: ''
     },
     errors: {},
     loading: false,
@@ -152,25 +154,25 @@ export class Signup extends Component {
             <div>
             <div className="large-screen-2 medium-screen-2 small-screen-4">
               <Input
-                name="lastName"
+                name="pin"
                 type="text"
                 inputClass="medium-text radius-1"
                 placeholder="PIN"
                 onChange={this.handleChange}
-                value={form.lastName}
-                error={errors.lastName}
+                value={form.pin}
+                error={errors.pin}
                 errorWidth={180}
               />
             </div>
             <div className="large-screen-2 medium-screen-2 small-screen-4">
               <Input
-                name="lastName"
+                name="phoneNumber"
                 type="text"
                 inputClass="medium-text radius-1"
                 placeholder="Phone Number"
                 onChange={this.handleChange}
-                value={form.lastName}
-                error={errors.lastName}
+                value={form.phoneNumber}
+                error={errors.phoneNumber}
                 errorWidth={180}
               />
             </div>

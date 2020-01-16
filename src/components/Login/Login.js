@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import { login } from '../../actions/user';
+import { login } from '../../actions/user'
 import './Login.scss';
 import { Input, Button, Form, SocialMediaButton, Alert, Img } from '../common';
 
@@ -22,17 +22,16 @@ export class Login extends Component {
     return this.setState({ redirect: redirect && `/${redirect}` });
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { errors } = this.state;
-  //   this.setState({ errors: { ...errors, ...nextProps.errors } });
-  // }
+  componentWillReceiveProps(nextProps) {
+    const { errors } = this.state;
+    this.setState({ errors: { ...errors, ...nextProps.errors } });
+  }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, errors: {} });
   };
 
-  handeleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = (e) => { e.preventDefault();
 
     const { email, password } = this.state;
     const { login } = this.props;
@@ -64,7 +63,7 @@ export class Login extends Component {
         </Link>
         <div id="Login">
           <div className="LoginForm large-screen-3 medium-screen-4 small-screen-4">
-            <Form formTitle="LOGIN" className="login" onSubmit={this.handeleSubmit}>
+            <Form formTitle="LOGIN" className="login" onSubmit={this.handleSubmit}>
               <div className="large-screen-4 medium-screen-4 small-screen-4">
                 <Input
                   name="email"
@@ -97,6 +96,7 @@ export class Login extends Component {
               >
                 Forgot Password?
               </Link>
+              <br />
               <div className="large-screen-4">
                 <div className="">
                   <Button type="submit" text="Login" padding="small" size={20} loading={loading}>
@@ -134,16 +134,19 @@ Login.propTypes = {
   errors: PropTypes.object
 };
 
-// const mapStateToProps = ({
-//   user: {
-//     login: { errors, message, loading },
-//     profile
-//   }
-// }) => ({
-//   errors,
-//   message,
-//   loading,
-//   profile
-// });
+const mapStateToProps = ({
+  user: {
+    login: { errors, message, loading },
+    profile
+  }
+}) => ({
+  errors,
+  message,
+  loading,
+  profile
+});
 
-export default connect(null, { login })(Login);
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);

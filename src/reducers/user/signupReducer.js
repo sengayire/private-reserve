@@ -24,6 +24,6 @@ export default (state, { type, payload }) => {
         signup: { loading: false, message: '', errors: { ...payload.errors } }
       };
     default:
-      return null;
+      return state;
   }
 };
