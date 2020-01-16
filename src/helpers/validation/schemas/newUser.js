@@ -19,13 +19,6 @@ export default Joi.object().keys({
     .min(5)
     .max(100)
     .required(),
-  bio: Joi.string()
-    .min(5)
-    .optional(),
-  image: Joi.string()
-    .min(5)
-    .max(100)
-    .optional(),
   password: Joi.string()
     .min(8)
     .max(100)
@@ -34,9 +27,12 @@ export default Joi.object().keys({
     .min(8)
     .max(100)
     .required(),
-  role: Joi.string()
+  pin: Joi.string()
     .min(2)
-    .max(100)
+    .max(10)
     .optional(),
-  permissions: Joi.object().optional()
+  phoneNumber: Joi.string()
+  .min(8)
+  .max(20)
+  .optional(),
 });

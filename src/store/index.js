@@ -13,3 +13,4 @@ export default createStore(
   initialState,
   composeWithDevTools(applyMiddleware(...middlewares))
 );
+
