@@ -5,20 +5,12 @@ import logoutReducer from './logoutReducer';
 import forgotPasswordReducer from './forgotPasswordReducer';
 import updatePasswordReducer from './updatePasswordReducer';
 import userProfileReducer from './userProfileReducer';
-export default (state = initialState, action) => {
-  const userProfile = userProfileReducer(state, action);
-  const logout = logoutReducer(state, action);
-  const signup = signupReducer(state, action);
-  const login = loginReducer(state, action);
-  const forgotPassword = forgotPasswordReducer(state, action);
 
-  return (
-     login 
-     || userProfile
-     || signup 
-     || logout 
-     || forgotPassword 
-     || updatePasswordReducer
-
-  );
-};
+export default (state = initialState, action) => ({
+  ...state,
+  ...userProfileReducer(state, action),
+  ...logoutReducer(state, action),
+  ...signupReducer(state, action),
+  ...loginReducer(state, action),
+  ...forgotPasswordReducer(state, action),
+});

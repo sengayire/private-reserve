@@ -29,6 +29,6 @@ export default (state = userInitialState, { type, payload }) => {
         login: { loading: false, message: '', errors: { ...payload.errors } }
       };
     default:
-      return state;
+      return null;
   }
 };

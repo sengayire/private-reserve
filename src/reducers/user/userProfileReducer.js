@@ -1,7 +1,6 @@
 import { userActionsTypes } from '../../actions-types';
 
 export default (state, { type, payload }) => {
-  console.log('reducer', payload)
   switch (type) {
     case userActionsTypes.CREATE_PROFILE_START:
       return {
@@ -21,9 +20,9 @@ export default (state, { type, payload }) => {
     case userActionsTypes.CREATE_PROFILE_FAILURE:
       return {
         ...state,
-        adProfile: { loading: false, message: '', errors: { ...payload.errors } }
+        adProfile: { loading: false, message: '', ...payload }
       };
     default:
-      return state;
+      return null;
   }
 };

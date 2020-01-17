@@ -29,6 +29,6 @@ export default (state, { type, payload }) => {
         logout: { loading: false, message: '', errors: { ...payload.errors } }
       };
     default:
-      return state;
+      return null;
   }
 };

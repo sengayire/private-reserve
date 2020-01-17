@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import './PostAd.scss'
 import {userProfile} from '../../actions/user';
+import {  Alert  } from '../common';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 class AboutYou extends Component {
@@ -19,6 +21,9 @@ class AboutYou extends Component {
       },
       errors: {}
     }
+    componentWillReceiveProps = (nextProps) => {
+       this.setState({errors: nextProps.errors})
+    }
     handleChange = (e) => {
         const {form} = this.state
         this.setState({ form: {
@@ -32,8 +37,23 @@ class AboutYou extends Component {
        userProfile(form)
       }
     render() {
+       const {errors} = this.state;
         return(
             <div>
+        {Object.keys(errors).length ? (
+          <Alert
+            alertType="danger"
+            message={
+              errors
+              || errors.account
+              || errors.password
+              || errors.email
+              || errors.message
+            }
+          />
+        ) : (
+          ''
+        )}
                 <div className='about-you-container'>
                 <div className='ad-profile section'>
                    <div className='section-container'>
@@ -226,12 +246,15 @@ class AboutYou extends Component {
                 </div>
                 <div className='saveContinue'>
                   <button className='btn-secondary' onClick={this.handleClick}>Save</button>
-                  <button className='btn-continue'>Continue</button>
+                  <Link to='/builder/details'><button className='btn-continue'>Continue</button></Link>
                 </div>
                 </div>
             </div>
         )
     }
 }
+const mapStateToProps = ({user: {adProfile}}) => {
+    return adProfile;
+};
 
-export default connect(null, {userProfile})(AboutYou);
+export default connect(mapStateToProps, {userProfile})(AboutYou);
