@@ -9,6 +9,7 @@ import SelectProfile from './PostAd/SelectProfile';
 import AboutYou from './PostAd/AboutYou';
 import ForgotPassword from './ResetPassword/ForgotPassword';
 import ResetPassword from './ResetPassword/ResetPassword'
+import Details from './PostAd/Details';
 
 const Routes = () => (
   <Switch>
@@ -19,6 +20,7 @@ const Routes = () => (
     <Route exact path="/profile" component ={AdminProfile} />
     <Route exact path="/builder/selectProfile" component ={SelectProfile} />
     <Route exact path="/builder/about" component ={AboutYou} />
+    <Route exact path="/builder/details" component ={Details} />
     <Route exact path="/forgot-password" component= {ForgotPassword} />} />
     <Route exact path="/reset-password/:token" component = {ResetPassword} />} />
   </Switch>

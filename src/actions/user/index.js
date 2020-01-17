@@ -4,6 +4,7 @@ import login from './login';
 import socialAuth from './socialAuth';
 import forgotPassword from './forgotPasswordAction';
 import updatePassword from './updatePasswordAction';
+import userProfile from './userProfile'
 
 export {
   signup,
@@ -11,5 +12,6 @@ export {
   logout,
   socialAuth,
   forgotPassword,
-  updatePassword
+  updatePassword,
+  userProfile
 };

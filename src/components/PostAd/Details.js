@@ -1,39 +1,53 @@
-import react from 'react';
+import React from 'react';
+import './PostAd.scss';
 
 const Details = () => {
     return(
         <div>
-            <div className='your-bio'>
-                <p>
-                    <b>
-                    YOUR BIO
-                    </b>
-                </p>
-                <p>
-                Your ad bio is an important way to give viewers more detailed information about who you are, 
-                the services you provide, and booking info.
-                </p>
-                <p>
-                    <b>
-                    Disclaimer
-                    </b>
-                </p>
-                <p>Bio Text</p>
-                <div>
-                    <textarea>Here we are</textarea>
-                </div>
+            <div className='details_container'>
+            <div className='section_container'>
+             <div className='section'>
+             <div className='section_title'>
+            
+            <p>
+            YOUR BIO
+            </p>
+        
+        </div>
+        <div className='upload'>
+
+        <p>
+        Your ad bio is an important way to give viewers more detailed information about who you are, 
+        the services you provide, and booking info.
+        </p>
+        </div>
+        <div className='section_title'>
+        <p>
+    
+            Disclaimer
+        
+        </p> 
+        </div>
+
+        <div className='form_group'>
+        <p>Bio Text</p>
+            <textarea>Here we are</textarea>
+        </div>
+             </div>
             </div>
-            <div className='additional-categories'>
-                <p><b>YOUR DETAILS & ADDITIONAL CATEGORIE</b></p>
+            <div className='section_container'>
+                <div className='section'>
+                <div className='section_title'><p><b>YOUR DETAILS & ADDITIONAL CATEGORIE</b></p></div>
                 <p>
                 This information will appear on your ad to give viewers a quick summary of your physical attributes.
              Many qualify your ad for additional categories,
              giving your ad more visibility.
                 </p>
                 <div>
-                    <div className='your-stats'>
-                        <p><b>Your Stats</b></p>
+                <div>
+                    <div className='stats_measurements'>
                         <div className='air-color'>
+                        <p><b>Your Stats</b></p>
                             <label><b>Hair Color</b></label>
                             <div>
                             <select>
@@ -52,7 +66,6 @@ const Details = () => {
                                 <option>  wild  </option>
                             </select>
                             </div>
-                        </div>
                         <div className='eye-color'>
                             <label><b>Eye Color</b></label>
                             <div>
@@ -135,6 +148,54 @@ const Details = () => {
                                     <label>Trans</label>
                             </div>
                         </div>
+                        </div>
+                        <div>
+                            <div ><p>Measurements</p></div>
+                            <div>
+                                <label>Royal</label>
+                                <label>Metric</label>
+                            </div>
+                            <div className='measurement-container'>
+                                <div>
+                                    <div>
+                                        <label>Height:</label>
+                                        <input type='text' />
+                                        <p>ft</p>
+                                        <input type='text' />
+                                        <p>in</p>
+                                    </div>
+                                    <div>
+                                    <label>Weight:</label>
+                                        <input type='text' />
+                                        <p>lbs</p>
+                                    </div>
+                                    <div>
+                                    <label>Bust:</label>
+                                        <input type='text' />
+                                        <p>in</p>
+                                    </div>
+                                    <div>
+                                    <label>Cup:</label>
+                                        <select>
+                                            <option>here</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                    <label>Waist:</label>
+                                        <input type='text' />
+                                        <p>in</p>
+                                    </div>
+                                    <div>
+                                    <label>Hips:</label>
+                                        <input type='text' />
+                                        <p>in</p>
+                                    </div>
+
+                                    ---
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                         <div className='spec-categories'>
                             <div>
                             <p><b>Specialty Categories</b></p>
@@ -164,7 +225,11 @@ const Details = () => {
                                     <label>European</label>
                             </div>
                         </div>
-                        <div className='location-map'>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div className='section_container'>
                             <div>
                             <p><b>Location & Mapping</b></p>
                             <p>
@@ -214,7 +279,7 @@ const Details = () => {
                                     </div>
                                 </div>
                         </div>
-                        <div className='video-social'>
+                        <div className='section_container'>
                           <div><p><b>Video & Social</b></p>
                           <p>Add social media usernames to provide additional ways for viewers to interact with you.</p>
                           </div>
@@ -299,13 +364,13 @@ const Details = () => {
                               </div>
                           </div>
                         </div>
-                    </div>
-                </div>
-            </div>
             <div className='saveContinue'>
               <button>Save</button>
               <button>Continue</button>
             </div>
+            </div>
         </div>
     )
 }
+
+export default Details;
