@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import {connect} from 'react-redux';
 import './PostAd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faYouTube } from '@fortawesome/free-solid-svg-icons';
+import {postAdDetails} from '../../actions/user';
 import { 
     faYoutube, 
     faFacebookSquare,
@@ -14,7 +14,7 @@ import {
     faPeriscope, 
     faInstagram 
 } from '@fortawesome/free-brands-svg-icons'
-// import { faYoutube } from '@fortawesome/free-regular-svg-icons'
+import { Alert } from '../common';
 
 class Details  extends Component {
     state ={
@@ -23,17 +23,37 @@ class Details  extends Component {
         },
         errors: {}
     };
+
+    componentWillReceiveProps = (nextProps) => {
+        console.log('nextProps', nextProps)
+        this.setState({errors: nextProps.errors})
+     }
     handleChange = (e) => {
         const {form} = this.state
         this.setState({ form: {
            ...form, [e.target.name]: e.target.value
         }, errors: {} });
       };
+
+      handleClick = (e) => {
+        e.preventDefault();
+        const {form} = this.state;
+        const {postAdDetails} = this.props;
+        postAdDetails(form)
+       }
     render() {
-        const {form} =this.state;
-        console.log('form', form);
+        const {form, errors} =this.state;
         return(
             <div>
+                 {Object.keys(errors).length ? (
+          <Alert
+            alertType="danger"
+            message={errors.message
+            }
+          />
+        ) : (
+          ''
+        )}
                 <div className='details_container'>
                 <div className='section_container'>
                  <div className='section'>
@@ -391,7 +411,7 @@ class Details  extends Component {
                               </div>
                             </div>
                 <div className='saveContinue'>
-                  <button className='btnSave'>Save</button>
+                  <button className='btnSave' onClick={this.handleClick}>Save</button>
                   <button className='btnContinue'>Continue</button>
                 </div>
                 </div>
@@ -400,4 +420,8 @@ class Details  extends Component {
     }
 }
 
-export default connect()(Details);
+const mapStateToProps = ({postAd: {details}}) => {
+    return details;
+};
+
+export default connect(mapStateToProps, {postAdDetails})(Details);
