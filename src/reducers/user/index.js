@@ -6,6 +6,7 @@ import forgotPasswordReducer from './forgotPasswordReducer';
 import updatePasswordReducer from './updatePasswordReducer';
 import userProfileReducer from './userProfileReducer';
 
+
 export default (state = initialState, action) => ({
   ...state,
   ...userProfileReducer(state, action),

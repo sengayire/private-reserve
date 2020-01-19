@@ -1,4 +1,4 @@
 import user from './user';
+import postAd from  './postAd'
 
-
-export default { user };
+export default { user, postAd };
