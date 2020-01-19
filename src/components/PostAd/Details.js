@@ -1,376 +1,403 @@
-import React from 'react';
+import React, { Component} from 'react';
+import {connect} from 'react-redux';
 import './PostAd.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faYouTube } from '@fortawesome/free-solid-svg-icons';
+import { 
+    faYoutube, 
+    faFacebookSquare,
+    faTwitter, 
+    faGooglePlus, 
+    faSnapchat, 
+    faVine, 
+    faTumblr, 
+    faPeriscope, 
+    faInstagram 
+} from '@fortawesome/free-brands-svg-icons'
+// import { faYoutube } from '@fortawesome/free-regular-svg-icons'
 
-const Details = () => {
-    return(
-        <div>
-            <div className='details_container'>
-            <div className='section_container'>
-             <div className='section'>
-             <div className='section_title'>
+class Details  extends Component {
+    state ={
+        form: {
             
-            <p>
-            YOUR BIO
-            </p>
-        
-        </div>
-        <div className='upload'>
-
-        <p>
-        Your ad bio is an important way to give viewers more detailed information about who you are, 
-        the services you provide, and booking info.
-        </p>
-        </div>
-        <div className='section_title'>
-        <p>
-    
-            Disclaimer
-        
-        </p> 
-        </div>
-
-        <div className='form_group'>
-        <p>Bio Text</p>
-            <textarea>Here we are</textarea>
-        </div>
-             </div>
-            </div>
-            <div className='section_container'>
-                <div className='section'>
-                <div className='section_title'><p><b>YOUR DETAILS & ADDITIONAL CATEGORIE</b></p></div>
+        },
+        errors: {}
+    };
+    handleChange = (e) => {
+        const {form} = this.state
+        this.setState({ form: {
+           ...form, [e.target.name]: e.target.value
+        }, errors: {} });
+      };
+    render() {
+        const {form} =this.state;
+        console.log('form', form);
+        return(
+            <div>
+                <div className='details_container'>
+                <div className='section_container'>
+                 <div className='section'>
+                 <div className='section_title'>
+                
                 <p>
-                This information will appear on your ad to give viewers a quick summary of your physical attributes.
-             Many qualify your ad for additional categories,
-             giving your ad more visibility.
+                YOUR BIO
                 </p>
-                <div>
-                <div>
-                    <div className='stats_measurements'>
-                        <div className='air-color'>
-                        <p><b>Your Stats</b></p>
-                            <label><b>Hair Color</b></label>
-                            <div>
-                            <select>
-                                <option>--hair color--</option>
-                                <option> red </option>
-                                <option> strawberry blonde </option>
-                                <option> blonde </option>
-                                <option> gray </option>
-                                <option> dirty blonde </option>
-                                <option> brunette </option>
-                                <option>  dark brown  </option>
-                                <option>  black  </option>
-                                <option>  brown  </option>
-                                <option>  auburn  </option>
-                                <option>  bald  </option>
-                                <option>  wild  </option>
-                            </select>
-                            </div>
-                        <div className='eye-color'>
-                            <label><b>Eye Color</b></label>
-                            <div>
-                                <select>
-                                    <option>--eye color--</option>
-                                    <option> black </option>
-                                    <option> brown </option>
-                                    <option> blue </option>
-                                    <option> hazel </option>
-                                    <option>  green  </option>
-                                    <option>  gray  </option>
+            
+            </div>
+            <div className='upload'>
+    
+            <p>
+            Your ad bio is an important way to give viewers more detailed information about who you are, 
+            the services you provide, and booking info.
+            </p>
+            </div>
+            <div className='section_title'>
+            <p>
+        
+                Disclaimer
+            
+            </p> 
+            </div>
+    
+            <div className='form_group'>
+            <p>Bio Text</p>
+                <textarea name='bio' onChange={this.handleChange}>Here we are</textarea>
+            </div>
+                 </div>
+                </div>
+                <div className='section_container'>
+                    <div className='section'>
+                    <div className='section_title'><p>YOUR DETAILS & ADDITIONAL CATEGORIE</p></div>
+                    <p>
+                    This information will appear on your ad to give viewers a quick summary of your physical attributes.
+                 Many qualify your ad for additional categories,
+                 giving your ad more visibility.
+                    </p>
+                    <div>
+                    <div>
+                        <div className='stats_measurements'>
+                             <div className='stats-container'>
+                             <div className='stats-header'><p>Your Stats</p></div>
+                            <div className='air-color'>
+                                <label className='color'><b>Hair Color</b></label>
+                                <br />
+                                <select name='hairColor' onChange={this.handleChange}>
+                                    <option>--hair color--</option>
+                                    <option> red </option>
+                                    <option> strawberry blonde </option>
+                                    <option> blonde </option>
+                                    <option> gray </option>
+                                    <option> dirty blonde </option>
+                                    <option> brunette </option>
+                                    <option>  dark brown  </option>
+                                    <option>  black  </option>
+                                    <option>  brown  </option>
+                                    <option>  auburn  </option>
+                                    <option>  bald  </option>
+                                    <option>  wild  </option>
                                 </select>
-                            </div>
-                        </div>
-                        <div className='ethnicity'>
-                            <label><b>Ethnicity</b></label>
-                            <p>Please select your ethnicity.</p>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Asian</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Black/Ebony</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Caucasian</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>East Indian</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Exotic</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Latino/Hispanic</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Middle Eastern</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Native American</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Pacific Islander</label>
-                            </div>
-                        </div>
-                        <div className='affiliate'>
-                            <p>Affiliation?</p>
-                            <button>Independent</button>
-                            <button>Agency</button>
-                        </div>
-                        <div className='available-to'>
-                           <div> <p><b>Available to?</b></p></div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Men</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Women</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Couples</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Groups</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Trans</label>
-                            </div>
-                        </div>
-                        </div>
-                        <div>
-                            <div ><p>Measurements</p></div>
-                            <div>
-                                <label>Royal</label>
-                                <label>Metric</label>
-                            </div>
-                            <div className='measurement-container'>
+                                </div>
+                                <br />
+                            <div className='eye-color'>
+                                <label><b>Eye Color</b></label>
                                 <div>
-                                    <div>
-                                        <label>Height:</label>
-                                        <input type='text' />
-                                        <p>ft</p>
-                                        <input type='text' />
-                                        <p>in</p>
-                                    </div>
-                                    <div>
-                                    <label>Weight:</label>
-                                        <input type='text' />
-                                        <p>lbs</p>
-                                    </div>
-                                    <div>
-                                    <label>Bust:</label>
-                                        <input type='text' />
-                                        <p>in</p>
-                                    </div>
-                                    <div>
-                                    <label>Cup:</label>
-                                        <select>
-                                            <option>here</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                    <label>Waist:</label>
-                                        <input type='text' />
-                                        <p>in</p>
-                                    </div>
-                                    <div>
-                                    <label>Hips:</label>
-                                        <input type='text' />
-                                        <p>in</p>
-                                    </div>
-
-                                    ---
+                                    <select name='eyeColor' onChange={this.handleChange}>
+                                        <option>--eye color--</option>
+                                        <option> black </option>
+                                        <option> brown </option>
+                                        <option> blue </option>
+                                        <option> hazel </option>
+                                        <option>  green  </option>
+                                        <option>  gray  </option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        </div>
-                        <div className='spec-categories'>
-                            <div>
-                            <p><b>Specialty Categories</b></p>
-                            <p>
-                                Select any specialty categories that apply to you or the service you provide.
-                                 Adding specialty categories increases exposure by targeting viewers searching for providers with specific attributes.
-                                 </p>
+                            <br />
+                            <div className='ethnicity'>
+                                <label><b>Ethnicity</b></label>
+                                <p>Please select your ethnicity.</p>
+                                <div>
+                                    <input type='checkbox' value='asia' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Asian</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='black/ebony' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Black/Ebony</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='caucasian' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Caucasian</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='east indian' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>East Indian</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='exotic' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Exotic</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='latino/hispanic ' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Latino/Hispanic</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='middle eastern' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Middle Eastern</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='native american' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Native American</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='pacific islander' name='ethnicity' onChange={this.handleChange}/>
+                                        <label>Pacific Islander</label>
+                                </div>
                             </div>
-                                 <div>
-                                <input type='checkbox' />
-                                    <label>Centerfold - $</label>
+                            <div className='affiliate'>
+                                <p>Affiliation?</p>
+                                <button className='independent'>Independent</button>
+                                <button className='agency'>Agency</button>
                             </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Mature - $</label>
+                            <div className='available-to'>
+                               <div> <p><b>Available to?</b></p></div>
+                                <div>
+                                    <input type='checkbox' value='men' name='availableTo' onChange={this.handleChange} />
+                                        <label>Men</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='women' name='availableTo' onChange={this.handleChange}/>
+                                        <label>Women</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='couples' name='availableTo' onChange={this.handleChange}/>
+                                        <label>Couples</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='groups' name='availableTo' onChange={this.handleChange}/>
+                                        <label>Groups</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='trans' name='availableTo' onChange={this.handleChange}/>
+                                        <label>Trans</label>
+                                </div>
                             </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Alternative - $</label>
                             </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Xxx - $</label>
+                            <div className='stats-container'>
+                                <div className='stats-header'><p>Measurements</p></div>
+                                <div className='btn-group'>
+                                    <label className='btn royal'>Royal</label>
+                                    <label className='btn metric'>Metric</label>
+                                </div>
+                                <div className='measurement-container'>
+                                    <div className='measurement-content' >
+                                        <div className='measurement'>
+                                            <label>Height:</label>
+                                            <input type='text' name='measurement' onChange={this.handleChange}/>
+                                            <p>ft</p>
+                                            <input type='text' name='measurement' onChange={this.handleChange}/>
+                                            <p>in</p>
+                                        </div>
+                                        <div className='measurement'>
+                                        <label>Weight:</label>
+                                            <input type='text' name='measurement' onChange={this.handleChange}/>
+                                            <p>lbs</p>
+                                        </div>
+                                        <div className='measurement'>
+                                        <label>Bust:</label>
+                                            <input type='text' />
+                                            <p>in</p>
+                                        </div>
+                                        <div className='measurement'>
+                                        <label>Cup:</label>
+                                            <select>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <p></p>
+                                        <div className='measurement'>
+                                        <label>Waist:</label>
+                                            <input type='text' />
+                                            <p>in</p>
+                                        </div>
+                                        <div className='measurement'>
+                                        <label>Hips:</label>
+                                            <input type='text' />
+                                            <p>in</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>European</label>
                             </div>
+                            <div className='spec-categories'>
+                                <div>
+                                <p><b>Specialty Categories</b></p>
+                                <p>
+                                    Select any specialty categories that apply to you or the service you provide.
+                                     Adding specialty categories increases exposure by targeting viewers searching for providers with specific attributes.
+                                     </p>
+                                </div>
+                                     <div>
+                                    <input type='checkbox'  value='Centerfold' name='specialtyCategories' onChange={this.handleChange}/>
+                                        <label>Centerfold - $</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='mature' name='specialtyCategories' onChange={this.handleChange} />
+                                        <label>Mature - $</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='alternative' name='specialtyCategories' onChange={this.handleChange}/>
+                                        <label>Alternative - $</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='xxx' name='specialtyCategories' onChange={this.handleChange} />
+                                        <label>Xxx - $</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='european' name='specialtyCategories' onChange={this.handleChange}/>
+                                        <label>European</label>
+                                </div>
+                            </div>
+                            <br />
                         </div>
                     </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div className='section_container'>
-                            <div>
-                            <p><b>Location & Mapping</b></p>
-                            <p>
-                            Where about are you located, and where are you willing to travel?
-                            </p>
-                            </div>
-                                <div>
-                                <div>
-                                <input type='checkbox' />
-                                    <label>Incall</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Outcall</label>
-                            </div>
+                <div className='section_container'>
+                    <div className='section'>
+                                <div className='section_title'><p>Location & Mapping</p></div>
+                                <p>
+                                Where about are you located, and where are you willing to travel?
+                                </p>
+                             
+                                    <div>
+                                    <div>
+                                    <input type='checkbox' value='inCall' name='location' onChange={this.handleChange}/>
+                                        <label>Incall</label>
                                 </div>
                                 <div>
-                                    <div>
-                                        <p><b>Location Categories</b></p>
-                                        <p>Please select locations where you are available.</p>
+                                    <input type='checkbox' value='outCall' name='location' onChange={this.handleChange}/>
+                                        <label>Outcall</label>
+                                </div>
                                     </div>
                                     <div>
-                                    <div>
-                                <input type='checkbox' />
-                                    <label>Lethbridge</label>
+                                        <div>
+                                            <p><b>Location Categories</b></p>
+                                            <p>Please select locations where you are available.</p>
+                                        </div>
+                                        <div>
+                                        <div>
+                                    <input type='checkbox'  value='lethbridge' name='locationCategories' onChange={this.handleChange}/>
+                                        <label>Lethbridge</label>
+                                      </div>
+                                      <div>
+                                    <input type='checkbox' value='lethbridge' name='brooks' onChange={this.handleChange}/>
+                                        <label>Brooks</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='calgary' name='locationCategories' onChange={this.handleChange}/>
+                                        <label>Calgary</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='medicineHat' name='locationCategories' onChange={this.handleChange}/>
+                                        <label>Medicine Hat</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='redDeer' name='locationCategories' onChange={this.handleChange}/>
+                                        <label>Red Deer</label>
+                                </div>
+                                <div>
+                                    <input type='checkbox' value='airdrie' name='locationCategories' onChange={this.handleChange}/>
+                                        <label>Airdrie</label>
+                                </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <br />
+                    </div>
+                              
+                            <div className='section_container'>
+                              <div className='section'>
+                              <div className='section_title'><p>Video & Social</p>
+                              </div>
+                              <p>Add social media usernames to provide additional ways for viewers to interact with you.</p>
+                              <div className='form_group'>
+                              <div className='social'>
+                                  <div className='youTube row'>
+                                  <label><p>YouTube Video URL (3 Minutes Or Less)</p></label>
+                                  <div className='input_group'> 
+                                      <span className='input_group_addon'><FontAwesomeIcon icon={faYoutube}/></span>
+                                      <input type='text' name='youtubeLink' onChange={this.handleChange}/>
                                   </div>
-                                  <div>
-                                <input type='checkbox' />
-                                    <label>Brooks</label>
+                                  </div>
+                                  <div className='facebook row'>
+                                  <label><p>Facebook Profile</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faFacebookSquare}/>{' '}https://www.facebook.com/</span>
+                                      <input type='text' name='facebookLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='twitter row'>
+                                  <label><p>Twitter Handle @</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faTwitter} />{' '}https://www.twitter.com/</span>
+                                      <input type='text' name='twitter' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='GooglePlus row'>
+                                  <label><p>Google +</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faGooglePlus} />{' '}https://plus.google.com/</span>
+                                      <input type='text' name='googlePlusLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='Snapchat row'>
+                                  <label><p>Snapchat</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faSnapchat} />{' '}https://www.snapchat.com/add//</span>
+                                      <input type='text' name='snapChatLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='Vine row'>
+                                  <label><p>Vine</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faVine} />{' '}https://vine.co/</span>
+                                      <input type='text' name='vineLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='Tumblr row'>
+                                  <label><p>Tumblr</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faTumblr} />{' '}https://</span>
+                                      <input type='text' className='tumblr_input' name='tumblrLink' onChange={this.handleChange}/>
+                                      <span className='right'>.tumblr.com/</span>
+                                  </div>
+                                  </div>
+                                  <div className='Periscope row'>
+                                  <label><p>Periscope</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faPeriscope} />{' '}https://www.periscope.tv/</span>
+                                      <input type='text' name='PeriscopeLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                                  <div className='Instagram row'>
+                                  <label><p>Instagram</p></label>
+                                  <div className='input_group'>
+                                      <span><FontAwesomeIcon icon={faInstagram} /> {' '}https://www.instagram.com/</span>
+                                      <input type='text' name='instagramLink' onChange={this.handleChange}/>
+                                  </div>
+                                  </div>
+                              </div>
+                              </div>
+                              </div>
                             </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Calgary</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Medicine Hat</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Red Deer</label>
-                            </div>
-                            <div>
-                                <input type='checkbox' />
-                                    <label>Airdrie</label>
-                            </div>
-                                    </div>
-                                </div>
-                        </div>
-                        <div className='section_container'>
-                          <div><p><b>Video & Social</b></p>
-                          <p>Add social media usernames to provide additional ways for viewers to interact with you.</p>
-                          </div>
-                          <div className='social'>
-                              <div className='youTube'>
-                              <label><p>YouTube Video URL (3 Minutes Or Less)</p></label>
-                              <div>
-                                  <span>YouTube</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='facebook'>
-                              <label><p>Facebook Profile</p></label>
-                              <div>
-                                  <span>https://www.facebook.com/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='facebook'>
-                              <label><p>Facebook Profile</p></label>
-                              <div>
-                                  <span>https://www.facebook.com/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='facebook'>
-                              <label><p>Facebook Profile</p></label>
-                              <div>
-                                  <span>https://www.facebook.com/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='GooglePlus'>
-                              <label><p>Google +</p></label>
-                              <div>
-                                  <span>https://plus.google.com/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='Snapchat'>
-                              <label><p>Snapchat</p></label>
-                              <div>
-                                  <span>https://www.snapchat.com/add//</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='Vine'>
-                              <label><p>Vine</p></label>
-                              <div>
-                                  <span>https://vine.co/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='Vine'>
-                              <label><p>Vine</p></label>
-                              <div>
-                                  <span>https://vine.co/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='Tumblr'>
-                              <label><p>Tumblr</p></label>
-                              <div>
-                                  <span>https://</span>
-                                  <input type='text'/>
-                                  <span>.tumblr.com/</span>
-                              </div>
-                              </div>
-                              <div className='Periscope'>
-                              <label><p>Periscope</p></label>
-                              <div>
-                                  <span>https://www.periscope.tv/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                              <div className='Instagram'>
-                              <label><p>Instagram</p></label>
-                              <div>
-                                  <span>https://www.instagram.com/</span>
-                                  <input type='text'/>
-                              </div>
-                              </div>
-                          </div>
-                        </div>
-            <div className='saveContinue'>
-              <button>Save</button>
-              <button>Continue</button>
+                <div className='saveContinue'>
+                  <button className='btnSave'>Save</button>
+                  <button className='btnContinue'>Continue</button>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default Details;
+export default connect()(Details);
