@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 // import { PropTypes } from 'prop-types';
 import MetaTags from 'react-meta-tags';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar,faDollarSign, faTrophy, faClock, faLock } from '@fortawesome/free-solid-svg-icons';
+import {  faCommentDots, faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import Layout from '../Layout';
 import './Home.scss';
 // import { Img } from '../common';
@@ -72,7 +73,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
                  <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faCommentDots} color='white' className='icon'/></div>
                  <div>
                     <h4>Personalized Customer Service</h4>
                     <p>Erosads.com is your online resource for managing your Eros Guide advertising –
@@ -87,7 +88,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
                  <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faDollarSign} color='white' className='icon'/></div>
                  <div>
                      <h4>Save Money</h4>
                     <p>Every month we are sending out communications for you to save money on special services and fun promotional offers.
@@ -102,7 +103,7 @@ export class Home extends Component {
         <div className="content">
              <div className="testimonial-2">
                  <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faTrophy} color='white' className='icon'/></div>
                  <div>
                   <h4>The Ultimate Erotic Entertainment</h4>
                   <p>We have been online since 1997 and are the world’s largest adult directory with over 100 locations worldwide.
@@ -114,7 +115,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
                  <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faClock} color='white' className='icon'/></div>
                  <div>
                     <h4>Make Changes Whenever</h4>
                     <p>You can log into erosads.com to update your ad and manage your account at any time.
@@ -126,7 +127,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
              <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faLock} color='white' className='icon'/></div>
              <div>
                      <h4>Your Privacy is Our Priority</h4>
                     <p>You can trust us to protect your personal information and treat it with the utmost respect.</p>
@@ -138,7 +139,7 @@ export class Home extends Component {
          <div className="content">
              <div className="testimonial-2">
              <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faQuestionCircle} color='white' className='icon'/></div>
                  <div>
                      <h4>
                      What does my purchase cover?
@@ -151,7 +152,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
              <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faQuestionCircle} color='white' className='icon'/></div>
              <div>
                      <h4>
                      What types of ads do you offer?
@@ -168,7 +169,7 @@ export class Home extends Component {
              </div>
              <div className="testimonial-2">
              <div className='card-content'>
-                 <div><FontAwesomeIcon icon={faStar} color='white' className='icon'/></div>
+                 <div><FontAwesomeIcon icon={faQuestionCircle} color='white' className='icon'/></div>
              <div>
                      <h4>
                      Am I charged for changes to my ad?
