@@ -12,33 +12,38 @@ import { Img, Button } from '../common';
 import HeaderUserMenu from './HeaderUserMenu/HeaderUserMenu';
 import HeaderUserImage from './HeaderUserImage/HeaderUserImage';
 import header from '../../assets/images/header-image.png';
-
+import { logout } from '../../actions/user';
 class Header extends Component {
-  state = { showUserMenu: false };
-
-  componentDidMount = () => {
-    window.document.addEventListener('click', (e) => {
-      const { parentNode, classList } = e.srcElement;
-      return (
-        (classList || (parentNode && parentNode.classList))
-        && !classList.contains('header-user-button')
-        && (parentNode && parentNode.classList && !parentNode.classList.contains('HeaderUserImage'))
-        && this.setState({ showUserMenu: false })
-      );
-    });
+  state = { 
+    isAuth: false,
+    username: '',
+    firstName: '',
+    lastName: ''
   };
 
-  componentWillUnmount = () => {
-    window.scrollTo(0, 0);
+  componentWillMount = () => {
+    const {isAuth, firstName, username, lastName} = this.props;
+   
+    this.setState({
+      isAuth, firstName, username,lastName
+    })
   };
 
-  toggleUserMenu = () => {
-    const { showUserMenu } = this.state;
-    this.setState({ showUserMenu: !showUserMenu });
-  };
+  // componentWillUnmount = () => {
+  //   window.scrollTo(0, 0);
+  // };
 
+  // toggleUserMenu = () => {
+  //   const { showUserMenu } = this.state;
+  //   this.setState({ showUserMenu: !showUserMenu });
+  // };
+  logout = (e) => {
+    e.preventDefault();
+    const { logout } = this.props;
+    logout();
+  };
   render() {
-    const { showUserMenu } = this.state;
+    const { username, isAuth } = this.state;
     return (
       <header className="Header fluid" style={{ display: 'flex', flexDirection: 'column', alignContent: 'start' }}>
         <div className="container">
@@ -51,7 +56,13 @@ class Header extends Component {
                 <Link to='/'><Button >Home</Button></Link>
                 <Button >Pricing</Button>
                 <Button  >Contact</Button>
-                <Button style={{ marginLeft: '600px', float: 'right', backgroundColor: 'transparent' }}><Link  className='right-btn'  style={{color: 'rgba(255,255,255,.5)'}}to={'/login'}>Login</Link></Button>
+                <Button style={{ marginLeft: '600px', float: 'right', backgroundColor: 'transparent' }}>
+                  {
+                   isAuth && <Link className="logout" to="/"  style={{color: 'rgba(255,255,255,.5)'}} onClick={this.logout}>Logout</Link> 
+                  || <Link  className='right-btn'  style={{color: 'rgba(255,255,255,.5)'}} to={'/login'}>Login</Link>
+                  }
+                  
+                  </Button>
             </nav>
           </div>
       </header>
@@ -59,4 +70,17 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({
+  user: {
+    isAuth,
+    profile: { username, firstName, lastName, role }
+  }
+}) => ({
+  isAuth,
+  username,
+  firstName,
+  lastName,
+  role
+});
+
+export default connect(mapStateToProps, {logout})(Header);
