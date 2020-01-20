@@ -8,7 +8,7 @@ $full-width: 100%;
 /* container */
 .container {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: auto;
   width: ($full-width - 2);
 }
 

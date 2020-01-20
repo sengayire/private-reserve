@@ -2,11 +2,25 @@
 .profile-top-button {
     display: flex;
     justify-content:  space-between;
+    padding-top: 50px;
+    .profile-top-btn-left {
+        #on{
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+        #off {
+            color: black;
+            background-color: #fff;
+            border-color: #5cb85c; 
+        }
+    }
 }
 .profile-form-container{
     background-color: white;
     border-radius: 5px;
     .profile-form {
+        margin-top: 20px;
         .profile-form-content {
             display: flex;
             flex-direction: row;
@@ -21,6 +35,7 @@
                 background-color: transparent;
                 margin-left: 3px;
             }
+            
             .profile-select-show {
                 display: flex;
             }

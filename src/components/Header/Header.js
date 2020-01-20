@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './Header.scss';
+import welcome from '../../assets/images/bgImage.png'
 import siteLogo from '../../assets/images/logo_ah_secondo.png';
 import siteLogoSmall from '../../assets/images/logo_ah_small.png';
 import { Img, Button } from '../common';
@@ -39,15 +40,20 @@ class Header extends Component {
   render() {
     const { showUserMenu } = this.state;
     return (
-      <header className="Header" style={{ display: 'flex', flexDirection: 'column', alignContent: 'start' }}>
+      <header className="Header fluid" style={{ display: 'flex', flexDirection: 'column', alignContent: 'start' }}>
         <div className="container">
+          <a className='logo'>
+            <img src={welcome}/>
+          </a>
         </div>
-        <div className='header-nav' style={{ display: 'flex', backgroundColor: '#666', fontSize: '2px' }} >
+        <div className='header-nav' >
             <nav style={{ display: 'flex', flexDirection: 'row', height: '100%', marginLeft: '80px', }}>
-                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}>Home</Button>
-                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}>Pricing</Button>
-                <Button style={{ color: 'white', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }} >Contact</Button>
-                <Button style={{ marginLeft: '600px', color: 'white', float: 'right', backgroundColor: 'transparent', color: 'rgba(255,255,255,.5)' }}><Link to={'/login'}>Login</Link></Button></nav></div>
+                <Link to='/'><Button >Home</Button></Link>
+                <Button >Pricing</Button>
+                <Button  >Contact</Button>
+                <Button style={{ marginLeft: '600px', float: 'right', backgroundColor: 'transparent' }}><Link  className='right-btn'  style={{color: 'rgba(255,255,255,.5)'}}to={'/login'}>Login</Link></Button>
+            </nav>
+          </div>
       </header>
     );
   }

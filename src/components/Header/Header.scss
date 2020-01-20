@@ -8,10 +8,20 @@
   top: 0;
   position: fixed;
   height: 200px;
+  margin-bottom: 20px;
   @extend .white, .shadow-1;
+  .logo{
+    margin: 20px 45px;
+    img {
+      border-style: none;
+     vertical-align: middle;
+    }
+  }
   .container{
-    background-image: url('../../assets/images/header-image.png');
-    height: 800px;
+    background: white url('../../assets//images//eros-bg4.png') top left;
+    background-position-y: 85px;
+    background-repeat: repeat-x;
+    min-height: 190px;
   }
   .header-search-button {
     margin-right: 25px;
@@ -42,10 +52,16 @@
     }
   }
   .header-nav {
-      height: 100%;
-      .nav-login-btn {
-          color: 'white'
+    border-top: 1px solid #fed100;
+    margin-top: -8px;
+    background: linear-gradient(to bottom,#585858,#2b2b2b,#151515);
+    nav {
+      button{
+
+        background-color: transparent;
+        color: rgba(255,255,255,.5);
       }
+    }
       
   }
 }

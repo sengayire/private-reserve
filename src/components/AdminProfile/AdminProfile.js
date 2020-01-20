@@ -15,13 +15,14 @@ export default class AdminProfile extends Component {
         <Link to='/builder/selectProfile'><Button> Build Regular Ad</Button></Link>
     </div>
     <div className="profile-top-btn-left">
-        <Button>Available Now ON</Button>
-        <Button> Available Now OFF</Button>
+        <Button id='on'>Available Now ON</Button>
+        <Button id='off'> Available Now OFF</Button>
     </div>
 </div>
 
 <div className="profile-form-container">
     <form className="profile-form">
+    <p></p>
         <div className="profile-form-content">
             <div className="profile-select-show">
             <div className="form-content">
