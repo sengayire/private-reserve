@@ -60,9 +60,6 @@ export class ResetPassword extends Component {
     return (
       <div className="container">
         <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        <Link to="/">
-          <Img imgSrc={Logo} alt="log" width="300px" imgClass="center" />
-        </Link>
         <div className="ResetPasswordForm large-screen-3 medium-screen-4 small-screen-4">
           <Form formTitle="Choose a new password" onSubmit={this.handleSubmit}>
             <p className="paragraph">
