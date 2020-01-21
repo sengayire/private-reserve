@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import './PostAd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {postAdDetails} from '../../actions/user';
@@ -412,7 +413,7 @@ class Details  extends Component {
                             </div>
                 <div className='saveContinue'>
                   <button className='btnSave' onClick={this.handleClick}>Save</button>
-                  <button className='btnContinue'>Continue</button>
+                 <Link to='/builder/enhance' > <button className='btnContinue'>Continue</button></Link>
                 </div>
                 </div>
             </div>

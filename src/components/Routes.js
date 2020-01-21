@@ -10,6 +10,7 @@ import AboutYou from './PostAd/AboutYou';
 import ForgotPassword from './ResetPassword/ForgotPassword';
 import ResetPassword from './ResetPassword/ResetPassword'
 import Details from './PostAd/Details';
+import Enhance from './PostAd/Enhance';
 
 const Routes = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Routes = () => (
     <Route exact path="/builder/selectProfile" component ={SelectProfile} />
     <Route exact path="/builder/about" component ={AboutYou} />
     <Route exact path="/builder/details" component ={Details} />
+    <Route exact path="/builder/enhance" component ={Enhance} />
     <Route exact path="/forgot-password" component= {ForgotPassword} />} />
     <Route exact path="/reset-password/:token" component = {ResetPassword} />} />
   </Switch>
