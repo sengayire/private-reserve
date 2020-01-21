@@ -588,3 +588,204 @@ form {
         }
    }
 }
+
+
+// enhance styling
+
+.accordion{
+    text-align: center;
+    h2{
+        button{
+            background: 0 0;
+            border: none;
+            outline: 0;  
+            -webkit-appearance: button;
+            cursor: pointer;
+            text-transform: none;
+            padding: 1px 7px 2px;
+        }
+    } 
+    .card{
+        background-color: #fff;
+        border: none;
+        margin-bottom: 70px;
+        position: relative;
+        display: block;
+        margin-bottom: .75rem;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: .25rem;
+        .collapse {
+            display: block!important;
+            height: 100%!important;
+            .landing-page{
+                display: grid;
+                grid-gap: 45px;
+                grid-template-columns: repeat(12,1fr);
+                .one-col-lg {
+                    grid-column: span 12;
+                    border: 1px solid #dedede;
+                    border-radius: 15px;
+                    text-align: left;
+                    padding: 20px;
+                    display: -ms-grid;
+                    display: grid;
+                    -ms-grid-columns: min-content auto auto;
+                    grid-template-columns: -webkit-min-content auto auto;
+                    grid-template-columns: min-content auto auto;
+                    grid-column-gap: 20px;
+                    align-items: center;
+                    .circle {
+                        width: 110px;
+                        height: 110px;
+                        border-radius: 50%;
+                        border: solid 6px #eebd22;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        p {
+                            font-weight: bold;
+                            font-size: 400%;
+                            color: #eebd22;
+                            margin: 0;
+                        }
+                    }
+                    h3{
+                        color: #000;
+                        text-transform: uppercase;
+                        font-size: 1.75rem;
+                        margin-bottom: .5rem;
+                        font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.1;
+                    }
+                    .btn-yellow {
+                        border: none;
+                        background: #eebd22;
+                        width: 150px;
+                        height: 45px;
+                        text-transform: uppercase;
+                        border-radius: 40px;
+                        outline: 0;
+                        transition: .2s;
+                        cursor: pointer;
+                        font-weight: bold;
+                    }
+                }
+                .two-columns {
+                    display: flex;
+                    grid-column: span 6;
+                    border: 1px solid #dedede;
+                    border-radius: 15px;
+                    .first-col {
+                        border-right: 1px solid #dedede;
+                        padding: 80px 20px;
+                        display: flex;
+                        align-items: center;
+                        .circle {
+                            width: 110px;
+                            height: 110px;
+                            border-radius: 50%;
+                            background: #eebd22;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .white {
+                            width: 110px;
+                            height: 110px;
+                            border-radius: 50%;
+                            border: solid 6px #eebd22;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            p {
+                                font-weight: bold;
+                                font-size: 400%;
+                                color: #eebd22;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .second-col {
+                        text-align: left;
+                        text-transform: uppercase;
+                        padding: 45px 30px;
+                        h3{
+                            font-size: 24px;
+                        margin-bottom: 30px;
+                        color: #000;
+                        text-transform: uppercase;
+                        font-family: inherit;
+                        }
+                        p{
+                            text-transform: initial;
+                            margin-bottom: 30px;
+                        }
+                        .btn-yellow {
+                            border: none;
+                            background: #eebd22;
+                            width: 150px;
+                            height: 45px;
+                            text-transform: uppercase;
+                            border-radius: 40px;
+                            outline: 0;
+                            transition: .2s;
+                            -webkit-appearance: button;
+                        cursor: pointer;
+                        font-size: 15px;
+                        font-weight: bold;
+                        }
+                        .bold{
+                            display: block;
+                            margin-bottom: 50px;
+                            font-weight: 300;
+                        }
+                       span{
+
+                        display: block;
+                        margin-bottom: 50px;
+                       }
+                    }
+                }
+                .one-col {
+                    grid-column: span 4;
+                    border: 1px solid #dedede;
+                    border-radius: 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 28px 45px;
+                    h3 {
+                        font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.1;
+                    }
+                    p{
+                        text-transform: initial;
+                        margin-bottom: 20px;
+                    }
+                    .btn-white {
+                        border: 1px solid #000;
+                        background: #fff;
+                        width: 114px;
+                        height: 45px;
+                        text-transform: uppercase;
+                        border-radius: 40px;
+                        outline: 0;
+                        transition: .2s;
+                        align-self: flex-end;
+                        -webkit-appearance: button;
+                         cursor: pointer;
+                         font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.1;
+                    }
+                    .btn-white:hover {
+                        background-color: #eebd22;
+                    } 
+                }
+            }
+        }
+    }
+}
