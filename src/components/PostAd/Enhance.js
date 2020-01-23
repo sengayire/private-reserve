@@ -2,10 +2,11 @@ import React from 'react';
 import './PostAd.scss'
 import diamond from '../../assets/images/diamond.svg'
 import platin from '../../assets/images/platin.svg'
+import feature from '../../assets/images/feature.svg'
 const Enhance = () => {
     return(
         <div>
-            <div>
+            <div className='container'>
                 <div className='accordion'>
                    <div className='card'>
                        <div className='header'>
@@ -141,7 +142,7 @@ const Enhance = () => {
                            <div className='body landing-page'>
                                <div className='one-col-lg'>
                                    <div className='circle white'>
-                                       <img slt src='' />
+                                       <img slt src={feature} />
                                    </div>
                                    <div>
                                        <h3> what's new featured entertainer </h3>
@@ -176,6 +177,9 @@ const Enhance = () => {
                            </div>
                        </div>
                    </div>
+                <div className='btnGrp'>
+                    <button className='btn-white'>Continue</button>
+                </div>
                 </div>
             </div>
         </div>

@@ -218,4 +218,4 @@ const mapStateToProps = ({ user: { signup: { loading, message, errors } } }) => 
 });
 const mapDispatchToProps = dispatch => ({ signupUser: payload => dispatch(signup(payload)) });
 
-export default connect(null,mapDispatchToProps)(Signup);
+export default connect(mapStateToProps,mapDispatchToProps)(Signup);
