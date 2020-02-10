@@ -1,85 +1,101 @@
-import React, { Component} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './PostAd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {postAdDetails} from '../../actions/user';
-import { 
-    faYoutube, 
-    faFacebookSquare,
-    faTwitter, 
-    faGooglePlus, 
-    faSnapchat, 
-    faVine, 
-    faTumblr, 
-    faPeriscope, 
-    faInstagram 
-} from '@fortawesome/free-brands-svg-icons'
+import {
+  faYoutube,
+  faFacebookSquare,
+  faTwitter,
+  faGooglePlus,
+  faSnapchat,
+  faVine,
+  faTumblr,
+  faPeriscope,
+  faInstagram
+} from '@fortawesome/free-brands-svg-icons';
+import { postAdDetails } from '../../actions/user';
 import { Alert } from '../common';
 
-class Details  extends Component {
+class Details extends Component {
     state ={
-        form: {
-            
-        },
-        errors: {}
+      form: { },
+      errors: {}
     };
 
     componentWillReceiveProps = (nextProps) => {
-        console.log('nextProps', nextProps)
-        this.setState({errors: nextProps.errors})
-     }
+      this.setState({ errors: nextProps.errors });
+    }
+
     handleChange = (e) => {
-        const {form} = this.state
-        this.setState({ form: {
-           ...form, [e.target.name]: e.target.value
-        }, errors: {} });
-      };
+      const { form } = this.state;
+      this.setState({
+        form: { ...form, [e.target.name]: e.target.value },
+        error: {}
+      });
+    };
 
       handleClick = (e) => {
         e.preventDefault();
-        const {form} = this.state;
-        const {postAdDetails} = this.props;
-        postAdDetails(form)
-       }
-    render() {
-        const {form, errors} =this.state;
-        return(
+        const { form } = this.state;
+        const { postAdDetails } = this.props;
+        postAdDetails(form);
+      }
+
+      handleCheckChange = (e) => {
+        const { form } = this.state;
+        const { name, value, checked } = e.target;
+        return checked
+          ? this.setState((prevState) => ({
+            ...prevState,
+            form: {
+              ...prevState.form,
+              [name]: {
+                ...prevState.form[name],
+                [value]: true
+              }
+            }
+          })) : '';
+      };
+
+      render() {
+        const { errors, form } = this.state;
+        return (
             <div>
                  {Object.keys(errors).length ? (
           <Alert
             alertType="danger"
-            message={errors.message
+            message={errors.error
             }
           />
-        ) : (
-          ''
-        )}
+                 ) : (
+                   ''
+                 )}
                 <div className='details_container'>
                 <div className='section_container'>
                  <div className='section'>
                  <div className='section_title'>
-                
+
                 <p>
                 YOUR BIO
                 </p>
-            
+
             </div>
             <div className='upload'>
-    
+
             <p>
-            Your ad bio is an important way to give viewers more detailed information about who you are, 
+            Your ad bio is an important way to give viewers more detailed information about who you are,
             the services you provide, and booking info.
             </p>
             </div>
             <div className='section_title'>
             <p>
-        
+
                 Disclaimer
-            
-            </p> 
+
+            </p>
             </div>
-    
+
             <div className='form_group'>
             <p>Bio Text</p>
                 <textarea name='bio' onChange={this.handleChange}>Here we are</textarea>
@@ -138,39 +154,39 @@ class Details  extends Component {
                                 <label><b>Ethnicity</b></label>
                                 <p>Please select your ethnicity.</p>
                                 <div>
-                                    <input type='checkbox' value='asia' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='asia' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Asian</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='black/ebony' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='black/ebony' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Black/Ebony</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='caucasian' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='caucasian' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Caucasian</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='east indian' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='east indian' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>East Indian</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='exotic' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='exotic' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Exotic</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='latino/hispanic ' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='latino/hispanic ' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Latino/Hispanic</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='middle eastern' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='middle eastern' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Middle Eastern</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='native american' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='native american' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Native American</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='pacific islander' name='ethnicity' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='pacific islander' name='ethnicity' onChange={this.handleCheckChange}/>
                                         <label>Pacific Islander</label>
                                 </div>
                             </div>
@@ -182,23 +198,23 @@ class Details  extends Component {
                             <div className='available-to'>
                                <div> <p><b>Available to?</b></p></div>
                                 <div>
-                                    <input type='checkbox' value='men' name='availableTo' onChange={this.handleChange} />
+                                    <input type='checkbox' value='men' name='availableTo' onChange={this.handleCheckChange} />
                                         <label>Men</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='women' name='availableTo' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='women' name='availableTo' onChange={this.handleCheckChange}/>
                                         <label>Women</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='couples' name='availableTo' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='couples' name='availableTo' onChange={this.handleCheckChange}/>
                                         <label>Couples</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='groups' name='availableTo' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='groups' name='availableTo' onChange={this.handleCheckChange}/>
                                         <label>Groups</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='trans' name='availableTo' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='trans' name='availableTo' onChange={this.handleCheckChange}/>
                                         <label>Trans</label>
                                 </div>
                             </div>
@@ -258,23 +274,23 @@ class Details  extends Component {
                                      </p>
                                 </div>
                                      <div>
-                                    <input type='checkbox'  value='Centerfold' name='specialtyCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='Centerfold' name='specialtyCategories' onChange={this.handleCheckChange}/>
                                         <label>Centerfold - $</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='mature' name='specialtyCategories' onChange={this.handleChange} />
+                                    <input type='checkbox' value='mature' name='specialtyCategories' onChange={this.handleCheckChange} />
                                         <label>Mature - $</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='alternative' name='specialtyCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='alternative' name='specialtyCategories' onChange={this.handleCheckChange}/>
                                         <label>Alternative - $</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='xxx' name='specialtyCategories' onChange={this.handleChange} />
+                                    <input type='checkbox' value='xxx' name='specialtyCategories' onChange={this.handleCheckChange} />
                                         <label>Xxx - $</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='european' name='specialtyCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='european' name='specialtyCategories' onChange={this.handleCheckChange}/>
                                         <label>European</label>
                                 </div>
                             </div>
@@ -289,14 +305,14 @@ class Details  extends Component {
                                 <p>
                                 Where about are you located, and where are you willing to travel?
                                 </p>
-                             
+
                                     <div>
                                     <div>
-                                    <input type='checkbox' value='inCall' name='location' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='inCall' name='location' onChange={this.handleCheckChange}/>
                                         <label>Incall</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='outCall' name='location' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='outCall' name='location' onChange={this.handleCheckChange}/>
                                         <label>Outcall</label>
                                 </div>
                                     </div>
@@ -307,27 +323,27 @@ class Details  extends Component {
                                         </div>
                                         <div>
                                         <div>
-                                    <input type='checkbox'  value='lethbridge' name='locationCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='lethbridge' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Lethbridge</label>
                                       </div>
                                       <div>
-                                    <input type='checkbox' value='lethbridge' name='brooks' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='lethbridge' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Brooks</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='calgary' name='locationCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='calgary' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Calgary</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='medicineHat' name='locationCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='medicineHat' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Medicine Hat</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='redDeer' name='locationCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='redDeer' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Red Deer</label>
                                 </div>
                                 <div>
-                                    <input type='checkbox' value='airdrie' name='locationCategories' onChange={this.handleChange}/>
+                                    <input type='checkbox' value='airdrie' name='locationCategories' onChange={this.handleCheckChange}/>
                                         <label>Airdrie</label>
                                 </div>
                                         </div>
@@ -335,7 +351,7 @@ class Details  extends Component {
                             </div>
                             <br />
                     </div>
-                              
+
                             <div className='section_container'>
                               <div className='section'>
                               <div className='section_title'><p>Video & Social</p>
@@ -345,7 +361,7 @@ class Details  extends Component {
                               <div className='social'>
                                   <div className='youTube row'>
                                   <label><p>YouTube Video URL (3 Minutes Or Less)</p></label>
-                                  <div className='input_group'> 
+                                  <div className='input_group'>
                                       <span className='input_group_addon'><FontAwesomeIcon icon={faYoutube}/></span>
                                       <input type='text' name='youtubeLink' onChange={this.handleChange}/>
                                   </div>
@@ -417,12 +433,10 @@ class Details  extends Component {
                 </div>
                 </div>
             </div>
-        )
-    }
+        );
+      }
 }
 
-const mapStateToProps = ({postAd: {details}}) => {
-    return details;
-};
+const mapStateToProps = ({ postAd: { details } }) => details;
 
-export default connect(mapStateToProps, {postAdDetails})(Details);
+export default connect(mapStateToProps, { postAdDetails })(Details);

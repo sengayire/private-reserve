@@ -1,22 +1,30 @@
 import { userActionsTypes } from '../../actions-types';
 
 export default (state, { type, payload }) => {
-  console.log('payload', payload)
   switch (type) {
     case userActionsTypes.FORGOT_PASSWORD_START:
       return {
         ...state,
-        forgotPassword: { ...state.forgotPassword, message: '', loading: true, errors: {} }
+        forgotPassword: {
+          ...state.forgotPassword,
+          message: '',
+          loading: true,
+          errors: {},
+        },
       };
     case userActionsTypes.FORGOT_PASSWORD_END:
       return {
         ...state,
-        forgotPassword: { ...state.forgotPassword, message: '', loading: false }
+        forgotPassword: {
+          ...state.forgotPassword,
+          message: '',
+          loading: false,
+        },
       };
     case userActionsTypes.FORGOT_PASSWORD_SUCCESS:
       return {
         ...state,
-        forgotPassword: { loading: true, message: payload.message, errors: {} }
+        forgotPassword: { loading: true, message: payload.message, errors: {} },
       };
     case userActionsTypes.FORGOT_PASSWORD_FAILURE:
       return {
@@ -24,8 +32,8 @@ export default (state, { type, payload }) => {
         forgotPassword: {
           loading: false,
           message: '',
-          errors: { message: payload.errors || payload.message }
-        }
+          errors: { message: payload.errors || payload.message },
+        },
       };
     default:
       return null;

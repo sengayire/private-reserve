@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import './PostAd.scss'
-import {userProfile} from '../../actions/user';
-import {  Alert  } from '../common';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './PostAd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { userProfile } from '../../actions/user';
+import { Alert } from '../common';
+
 class AboutYou extends Component {
     state = {
       form: {
+        adProfile: 'prince',
         advertName: '',
         tagline: '',
         age: '',
@@ -21,24 +23,29 @@ class AboutYou extends Component {
       },
       errors: {}
     }
+
     componentWillReceiveProps = (nextProps) => {
-       this.setState({errors: nextProps.errors})
+      this.setState({ errors: nextProps.errors });
     }
+
     handleChange = (e) => {
-        const {form} = this.state
-        this.setState({ form: {
-           ...form, [e.target.name]: e.target.value
-        }, errors: {} });
-      };
+      const { form } = this.state;
+      this.setState({
+        form: { ...form, [e.target.name]: e.target.value },
+        errors: {}
+      });
+    };
+
       handleClick = (e) => {
-       e.preventDefault();
-       const {form} = this.state;
-       const {userProfile} = this.props;
-       userProfile(form)
+        e.preventDefault();
+        const { form } = this.state;
+        const { userProfile } = this.props;
+        userProfile(form);
       }
-    render() {
-       const {errors} = this.state;
-        return(
+
+      render() {
+        const { errors } = this.state;
+        return (
             <div>
         {Object.keys(errors).length ? (
           <Alert
@@ -57,7 +64,7 @@ class AboutYou extends Component {
                 <div className='about-you-container'>
                 <div className='ad-profile section'>
                    <div className='section-container'>
-                   <div className='ad-prof-header header'> <p> 
+                   <div className='ad-prof-header header'> <p>
                         Profile
                     </p></div>
                     <div className='ad-owner-name'>
@@ -82,7 +89,7 @@ class AboutYou extends Component {
                     <div className='tagline'>
                         <label><b>Tagline</b></label>
                         <div>
-                            <textarea name='tagline' type='text' rows='2'  onChange={this.handleChange}></textarea>
+                            <textarea name='tagline' type='text' rows='2' onChange={this.handleChange}></textarea>
                         </div>
                         <p><small>100 characters remaining</small></p>
                     </div>
@@ -92,7 +99,7 @@ class AboutYou extends Component {
                           <b>Age</b>
                         </label>
                         <div>
-                            <input name='age' type='text'  onChange={this.handleChange} />
+                            <input name='age' type='text' onChange={this.handleChange} />
                         </div>
                     </div>
                     <hr />
@@ -124,23 +131,23 @@ class AboutYou extends Component {
                                 <span className='input-addon icon'>
                                 <FontAwesomeIcon icon={faPhone} color='#3386d2'/>
                                 </span>
-                                <input type='text' name='phoneNumber'  placeholder='Phone Number'  onChange={this.handleChange}/>
+                                <input type='text' name='phoneNumber' placeholder='Phone Number' onChange={this.handleChange}/>
                                 <span className='input-addon plus'><FontAwesomeIcon icon={faPlus}/> </span>
                                 <div className='social-media-ckeckbox'>
                                     <div className='viber-checkbox'>
                                         <label>Viber</label>
-                                        <input name='viberContact' type='checkbox'  onChange={this.handleChange}/>
+                                        <input name='viberContact' type='checkbox' onChange={this.handleChange}/>
                                     </div>
                                     <div className='whatsapp-checkbox'>
                                         <label>Whatsapp</label>
-                                        <input name='whatsappContact' type='checkbox'  onChange={this.handleChange} />
+                                        <input name='whatsappContact' type='checkbox' onChange={this.handleChange} />
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div>
                                 <span className='input-addon icon' >
-                                <FontAwesomeIcon icon={faEnvelope} color='#3386d2'/>                                
+                                <FontAwesomeIcon icon={faEnvelope} color='#3386d2'/>
                                 </span>
                                 <input type='text' name='email' placeholder='Email' onChange={this.handleChange}/>
                                 <span className='input-addon plus'><FontAwesomeIcon icon={faPlus}/></span>
@@ -162,25 +169,25 @@ class AboutYou extends Component {
                      </label>
                      <div>
                          <select name='country' onChange={this.handleChange} >
-                             <option   value='select'>--country--</option>
-                             <option  value='Canada'> Canada </option>
-                             <option  value='England'> England </option>
+                             <option value='select'>--country--</option>
+                             <option value='Canada'> Canada </option>
+                             <option value='England'> England </option>
                              <option value='Italy'> Italy </option>
-                             <option  value='Northern Ireland'> Northern Ireland </option>
-                             <option  value='Scotland'> Scotland </option>
-                             <option  value='United States '> United States </option>
-                             <option  value='Wales'> Wales </option>
+                             <option value='Northern Ireland'> Northern Ireland </option>
+                             <option value='Scotland'> Scotland </option>
+                             <option value='United States '> United States </option>
+                             <option value='Wales'> Wales </option>
                          </select>
                          <p></p>
                          <select name='city' onChange={this.handleChange}>
                              <option>--City/State--</option>
                              <option>--kigali--</option>
-                             
+
                          </select>
                      </div>
                      <div>
                          <p>
-                         Please select location for this options 
+                         Please select location for this options
                          </p>
                          <p>
                              <b>
@@ -208,10 +215,10 @@ class AboutYou extends Component {
                             <input className="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
                             {/* <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
                             <button class="box__button" type="submit">Upload</button> */}
-                            <p className='dropInfo'> Drag & Drop your photos here 
+                            <p className='dropInfo'> Drag & Drop your photos here
                             <span>Upload up to 8 at once from your device</span>
                             </p>
-                           
+
                             <div>
                                 <p>Or</p>
                                 <p className='dropInfo'> Click to Upload Photos from your Computer/Device </p>
@@ -223,20 +230,20 @@ class AboutYou extends Component {
                      </form>
                     </div>
                     <p>
-                    Thumbnail will automatically be created from your 1st ad photo. 
+                    Thumbnail will automatically be created from your 1st ad photo.
                     You can rearrange the photo order by grabbing each photo and dragging to the desired order.
                      Press play button to check out how your thumbnail would look on our live site
                     </p>
                     <div className='alert-info'>
                         <p>
-                        An "<i>animated thumbnail</i>" is a rotation of your ad images. 
+                        An "<i>animated thumbnail</i>" is a rotation of your ad images.
                          thumbnails are included with VIP ads, and are available at a small cost for standard ads.
                         This features' price will be included in upcoming ad renewal price.
                         </p>
                     </div>
                     <div className='animated'>
                         <span><input type='checkbox' /></span>
-                       <span><p>Upgrade to animated</p></span> 
+                       <span><p>Upgrade to animated</p></span>
                     </div>
                     <div className='thumbnail'>
                         <p>Thumbnail</p>
@@ -250,11 +257,9 @@ class AboutYou extends Component {
                 </div>
                 </div>
             </div>
-        )
-    }
+        );
+      }
 }
-const mapStateToProps = ({user: {adProfile}}) => {
-    return adProfile;
-};
+const mapStateToProps = ({ user: { adProfile } }) => adProfile;
 
-export default connect(mapStateToProps, {userProfile})(AboutYou);
+export default connect(mapStateToProps, { userProfile })(AboutYou);
