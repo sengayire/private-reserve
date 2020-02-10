@@ -5,21 +5,19 @@ export default (state, { type, payload }) => {
     case userActionsTypes.CREATE_POST_START:
       return {
         ...state,
-        details: { message: '', loading: true, errors: {} }
+        details: { message: '', loading: true, errors: {} },
       };
     case userActionsTypes.CREATE_POST_END:
-      return {
-        ...state
-      };
+      return { ...state };
     case userActionsTypes.CREATE_POST_SUCCESS:
       return {
         ...state,
-        details: {loading: false, message: payload.message, errors: {} }
+        details: { loading: false, message: payload.message, errors: {} },
       };
     case userActionsTypes.CREATE_POST_FAILURE:
       return {
         ...state,
-        details: { loading: false, message: '', ...payload}
+        details: { loading: false, message: '', errors: { ...payload } },
       };
     default:
       return null;
