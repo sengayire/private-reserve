@@ -7,9 +7,9 @@ export default (payload = {}) => dispatch =>
       method: 'post',
       url: 'profile/post/details',
       data: { ...payload },
-      onStart: userActionsTypes.CREATE_POST_START,
-      onEnd: userActionsTypes.CREATE_POST_END,
-      onSuccess: userActionsTypes.CREATE_POST_SUCCESS,
-      onFailure: userActionsTypes.CREATE_POST_FAILURE,
+      onStart: userActionsTypes.CREATE_PROFILE_START,
+      onEnd: userActionsTypes.CREATE_PROFILE_END,
+      onSuccess: userActionsTypes.CREATE_PROFILE_SUCCESS,
+      onFailure: userActionsTypes.CREATE_PROFILE_FAILURE,
     }),
   );

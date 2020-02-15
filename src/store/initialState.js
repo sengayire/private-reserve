@@ -1,7 +1,9 @@
 const user = require('./initialStates/userInitialState');
-const postAdDetails = require('./initialStates/postAdDetailsState')
+const postAd = require('./initialStates/postAdDetailsState');
+const upload = require('./initialStates/upload');
 
 module.exports = {
   user,
-  postAdDetails
+  postAd,
+  upload,
 };

@@ -3,9 +3,7 @@ import signupReducer from './signupReducer';
 import loginReducer from './loginReducer';
 import logoutReducer from './logoutReducer';
 import forgotPasswordReducer from './forgotPasswordReducer';
-import updatePasswordReducer from './updatePasswordReducer';
 import userProfileReducer from './userProfileReducer';
-
 
 export default (state = initialState, action) => ({
   ...state,

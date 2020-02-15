@@ -9,7 +9,7 @@ export default ({
   onEnd = apiActionsTypes.API_REQUEST_END,
   onSuccess = apiActionsTypes.API_REQUEST_SUCCESS,
   onFailure = apiActionsTypes.API_REQUEST_FAILURE,
-  label = ''
+  label = '',
 }) => ({
   type: apiActionsTypes.API_REQUEST,
   payload: {
@@ -21,6 +21,6 @@ export default ({
     onFailure,
     onStart,
     onEnd,
-    label
-  }
+    label,
+  },
 });
