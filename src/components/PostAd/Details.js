@@ -24,8 +24,14 @@ class Details extends Component {
     };
 
     componentWillReceiveProps = (nextProps) => {
-      this.setState({ errors: nextProps.errors });
+      const { errors, message, profileInfo } = nextProps;
+      this.setState({ errors, message, profileInfo });
     }
+
+componentDidMount = () => {
+  const { profile: { id }, errors } = this.props;
+  this.setState({ errors, form: { profileId: id } });
+}
 
     handleChange = (e) => {
       const { form } = this.state;
@@ -43,7 +49,6 @@ class Details extends Component {
       }
 
       handleCheckChange = (e) => {
-        const { form } = this.state;
         const { name, value, checked } = e.target;
         return checked
           ? this.setState((prevState) => ({
@@ -59,14 +64,15 @@ class Details extends Component {
       };
 
       render() {
-        const { errors, form } = this.state;
+        const { errors, message } = this.state;
         return (
             <div>
-                 {Object.keys(errors).length ? (
+                 {(message || errors.error) && (
           <Alert
-            alertType="danger"
-            message={errors.error
-            }
+            alertType={(message && 'success') || (errors.error && 'danger')}
+            message={message || errors.error}
+          />
+                 )}
           />
                  ) : (
                    ''

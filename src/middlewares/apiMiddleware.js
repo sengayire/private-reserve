@@ -1,7 +1,10 @@
 import axiosHelper from '../helpers/axiosHelper';
 import { apiActionsTypes } from '../actions-types';
 
-const apiMiddleware = ({ dispatch, getState }) => (next) => async ({ type = '', payload = {} }) => {
+const apiMiddleware = ({ dispatch, getState }) => next => async ({
+  type = '',
+  payload = {},
+}) => {
   if (type !== apiActionsTypes.API_REQUEST) {
     return next({ type, payload });
   }
@@ -13,10 +16,12 @@ const apiMiddleware = ({ dispatch, getState }) => (next) => async ({ type = '', 
     );
     dispatch({ type: payload.onSuccess, payload: data });
   } catch (error) {
-    console.log('middleware', error)
+    console.log('middleware', error);
     dispatch({
       type: payload.onFailure,
-      payload: (error.response && error.response.data) || { errors: { message: error.message } }
+      payload: (error.response && error.response.data) || {
+        errors: { message: error.message },
+      },
     });
   }
 

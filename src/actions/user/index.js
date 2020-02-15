@@ -4,8 +4,9 @@ import login from './login';
 import socialAuth from './socialAuth';
 import forgotPassword from './forgotPasswordAction';
 import updatePassword from './updatePasswordAction';
-import userProfile from './userProfile'
-import postAdDetails from './postAdDetailsAction'
+import userProfile from './userProfile';
+import postAdDetails from './postAdDetailsAction';
+import upload from './upload';
 
 export {
   signup,
@@ -15,5 +16,6 @@ export {
   forgotPassword,
   updatePassword,
   userProfile,
-  postAdDetails
+  postAdDetails,
+  upload,
 };

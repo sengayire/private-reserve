@@ -1,9 +1,9 @@
-
 module.exports = {
   details: {
+    profile: {},
     loading: false,
     message: '',
-    errors: {}
-  }
+    errors: {},
+    profileInfo: {},
+  },
 };
-
