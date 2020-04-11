@@ -7,6 +7,8 @@ import CheckBox from './CheckBox/CheckBox';
 import RadioButton from './RadioButton/RadioButton';
 import Modal from './Modal/Modal';
 import SocialMediaButton from './SocialMediaButton/SocialMediaButton';
+import SideBar from './SideBar/SideBar';
+import CreateAd from './Card/CreateAd';
 
 export {
   Input,
@@ -17,5 +19,7 @@ export {
   CheckBox,
   RadioButton,
   Modal,
-  SocialMediaButton
+  SocialMediaButton,
+  SideBar,
+  CreateAd,
 };

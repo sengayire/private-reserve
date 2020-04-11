@@ -12,6 +12,7 @@ import ForgotPassword from './ResetPassword/ForgotPassword';
 import ResetPassword from './ResetPassword/ResetPassword';
 import Details from './PostAd/Details';
 import Enhance from './PostAd/Enhance';
+import MyProfileAd from './MyProfileAd/MyProfileAd';
 
 const Routes = ({ isAuth, postAd }) => (
   <Switch>
@@ -20,12 +21,9 @@ const Routes = ({ isAuth, postAd }) => (
     <Route exact path='/signup' component={Signup} />
     <Route exact path='/login' component={Login} />
     <Route exact path='/profile' component={AdminProfile} />
+    <Route exact path='/my/profile' component={MyProfileAd} />
     <Route exact path='/builder/selectProfile' component={SelectProfile} />
-    <Route
-      exact
-      path='/builder/about'
-      render={props => <AboutYou {...props} />}
-    />
+    <Route exact path='/builder/about' render={props => <AboutYou {...props} />} />
     <Route exact path='/builder/details' component={Details} />
     <Route exact path='/builder/enhance' component={Enhance} />
     <Route exact path='/forgot-password' component={ForgotPassword} />} />
