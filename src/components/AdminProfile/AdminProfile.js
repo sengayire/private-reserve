@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import Layout from '../Layout';
-import Login from '../Login'
+import Login from '../Login';
 import { Button } from '../common';
 import './AdminProfile.scss';
 
 class AdminProfile extends Component {
     state = {
-        isAuth: '',
-        firstName: '', 
-        lastName: '', 
-        username: ''
+      isAuth: '',
+      firstName: '',
+      lastName: '',
+      username: ''
     };
 
     componentWillMount() {
-      const {isAuth, firstName, lastName, username} = this.props
-      this.setState(
-         { isAuth, firstName, lastName, username}
-      )
+      const { isAuth, firstName, lastName, username } = this.props;
+      this.setState({ isAuth, firstName, lastName, username });
     }
-  render() {
-      const {isAuth} = this.state;
-    return (
-        isAuth && 
-           ( <div>
+
+    render() {
+      const { isAuth } = this.state;
+      return (
+        isAuth
+           && (<div>
 
                 <Layout>
 <div className="profile-top-button">
@@ -164,22 +163,22 @@ class AdminProfile extends Component {
 </div>
                 </Layout>
             </div>) || <Redirect to='/login' />
-    );
-  }
+      );
+    }
 }
 
 
 const mapStateToProps = ({
-    user: {
-      isAuth,
-      profile: { username, firstName, lastName, role }
-    }
-  }) => ({
+  user: {
     isAuth,
-    username,
-    firstName,
-    lastName,
-    role
-  });
-  
-  export default connect(mapStateToProps)(AdminProfile);
+    profile: { username, firstName, lastName, role }
+  }
+}) => ({
+  isAuth,
+  username,
+  firstName,
+  lastName,
+  role
+});
+
+export default connect(mapStateToProps)(AdminProfile);

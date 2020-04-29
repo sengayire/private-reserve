@@ -1,10 +1,10 @@
 import React from 'react';
-import './PostAd.scss'
-import diamond from '../../assets/images/diamond.svg'
-import platin from '../../assets/images/platin.svg'
-import feature from '../../assets/images/feature.svg'
-const Enhance = () => {
-    return(
+import './PostAd.scss';
+import diamond from '../../assets/images/diamond.svg';
+import platin from '../../assets/images/platin.svg';
+import feature from '../../assets/images/feature.svg';
+
+const Enhance = () => (
         <div>
             <div className='container'>
                 <div className='accordion'>
@@ -23,9 +23,9 @@ const Enhance = () => {
                                    <div>
                                        <h3> worldwide featured entertainer </h3>
                                        <p> This service is targeted to an International audience and is all about maximum exposure for any ad live on the Eros Guide network.
-                                            This service is displayed on our main landing page (www.eros.com), 
+                                            This service is displayed on our main landing page (www.eros.com),
                                            and is currently limited to 12 positions displayed as thumbnails or animated thumbnails.
-                                       </p> 
+                                       </p>
                                    </div>
                                    <div>
                                        <button className='btn-yellow'> See details </button>
@@ -43,10 +43,10 @@ const Enhance = () => {
                                            <br />
                                            <span className='bold'>Starting at CA$67.00</span>
                                        </h3>
-                                       
-                                       <p> Diamonds are a girl's best friends.  
+
+                                       <p> Diamonds are a girl's best friends.
                                            Want EXCLUSIVE placement on the site? Top of the Market  - Only 2 spots  - Shows tagline - 7-day run,
-                                            Tuesday to Tuesday 
+                                            Tuesday to Tuesday
                                             </p>
                                             <button className='btn-yellow'> See Details </button>
                                    </div>
@@ -62,8 +62,8 @@ const Enhance = () => {
                                        <h3> platinum placement <br />
                                        <span className='bold'>Starting at CA$26.80</span>
                                        </h3>
-                                       <p> Platinum, the best fit for a queen.  
-                                           Want to be among the FIRST in your location? Market page - Only 16 spots  - 7-day run, 
+                                       <p> Platinum, the best fit for a queen.
+                                           Want to be among the FIRST in your location? Market page - Only 16 spots  - 7-day run,
                                            Tuesday to Tuesday
                                             </p>
                                             <button className='btn-yellow'> See Details </button>
@@ -94,7 +94,7 @@ const Enhance = () => {
                        <div className='header'>
                            <h2>
                                <button>
-                               Category Listing Page 
+                               Category Listing Page
                                </button>
                            </h2>
                        </div>
@@ -106,8 +106,8 @@ const Enhance = () => {
                                  </div>
                                  <div>
                                      <h3>gold placement</h3>
-                                     <p> Gold, the color of royalty. Want the BEST placement in one of our categories? Top of a Category  
-                                         - Only 1 spot - 7-day run, Tuesday to Tuesday - Shows tagline 
+                                     <p> Gold, the color of royalty. Want the BEST placement in one of our categories? Top of a Category
+                                         - Only 1 spot - 7-day run, Tuesday to Tuesday - Shows tagline
                                      </p>
                                  </div>
                                      <div>
@@ -146,7 +146,7 @@ const Enhance = () => {
                                    </div>
                                    <div>
                                        <h3> what's new featured entertainer </h3>
-                                       <p> Shoot for the stars. Want everyone to know about the NEW STAR in town? What's New page - 
+                                       <p> Shoot for the stars. Want everyone to know about the NEW STAR in town? What's New page -
                                            Only 2 spots, can be combined - 7-day run, Tuesday to Tuesday - Shows tagline - Top of your market’s What's New page
                                       </p>
                                    </div>
@@ -183,8 +183,6 @@ const Enhance = () => {
                 </div>
             </div>
         </div>
-    )
-
-}
+);
 
 export default Enhance;
