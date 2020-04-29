@@ -5,64 +5,65 @@
 @import '../../assets/css/padding.scss';
 
 .Header {
-  top: 0;
-  position: fixed;
-  height: 200px;
-  margin-bottom: 20px;
-  @extend .white, .shadow-1;
-  .logo{
-    margin: 20px 45px;
-    img {
-      border-style: none;
-     vertical-align: middle;
-    }
-  }
+  height: 100%;
   .container{
-    background: white url('../../assets//images//eros-bg4.png') top left;
-    background-position-y: 85px;
-    background-repeat: repeat-x;
-    min-height: 190px;
-  }
-  .header-search-button {
-    margin-right: 25px;
-    padding: 15px 15px 0 15px;
-    vertical-align: top;
-  }
-
-  .header-notification-button {
-    margin-right: 30px;
-    padding: 15px 15px 0 15px;
-    vertical-align: top;
-    button {
-      padding: 0;
-    }
-    .number {
-      @extend .radius-5, .danger, .small-text;
-      color: $white;
-      padding: 2px 5px;
-      top: 10px;
-      position: absolute;
-    }
-  }
-
-  .header-user-button {
-    padding-top: 5px;
-    button {
-      padding: 0;
-    }
-  }
-  .header-nav {
-    border-top: 1px solid #fed100;
-    margin-top: -8px;
-    background: linear-gradient(to bottom,#585858,#2b2b2b,#151515);
-    nav {
-      button{
-
-        background-color: transparent;
-        color: rgba(255,255,255,.5);
+    background: #2b2b2b;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .logo{
+      width: 30%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .logo-title{
+        font-size: 25px;
+        font-weight: bold;
+        .logo-title-first{
+          color: #efbe00
+        }
+        .logo-title-second{
+          color: #fff
+        }
+        
       }
     }
-      
+    .header-content{
+      width: 70%;
+      display: flex;
+      justify-content: space-between;
+      .account-info{
+        display: flex;
+        justify-content: space-around;
+        margin-left: 50px;
+        align-items: center;
+        color: white;
+        width: 50%;
+        .account-balance{
+          color: #efbe00;
+        }
+      }
+      .account-shopping-cart{
+        height: 30%;
+        display: flex;
+        justify-content:  baseline;
+        position: relative;
+        .carts-numbers{
+          background: #efbe00;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          top: -7px;
+          left: 7px;
+        }
+      }
+    }
   }
 }
 

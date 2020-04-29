@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Signup.scss';
-import { Input, Button, Form, SocialMediaButton, Alert, Img } from '../common';
+import { Input, Button, Form, SocialMediaButton, Alert } from '../common';
 import { validateUser } from '../../helpers/validation';
 import { signup } from '../../actions/user';
-import logo from '../../assets/images/logo_ah_secondo.png';
 
 export class Signup extends Component {
   state = {
@@ -216,6 +215,6 @@ const mapStateToProps = ({ user: { signup: { loading, message, errors } } }) => 
   message,
   errors
 });
-const mapDispatchToProps = dispatch => ({ signupUser: payload => dispatch(signup(payload)) });
+const mapDispatchToProps = (dispatch) => ({ signupUser: (payload) => dispatch(signup(payload)) });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
